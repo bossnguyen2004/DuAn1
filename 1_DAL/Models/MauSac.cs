@@ -11,15 +11,14 @@ using System.Xml.Linq;
 
 namespace _1_DAL.Models
 {
-    [Table("ChucVu")]
-    [Index(nameof(Ma), Name = "UQ_ChucVu", IsUnique = true)]
-    public partial class ChucVu
+    [Table("MauSac")]
+    [Index(nameof(Ma), Name = "UQ_MauSac", IsUnique = true)]
+    public partial class MauSac
     {
-        public ChucVu()
+        public MauSac()
         {
-            NhanViens = new HashSet<NhanVien>();
+            SanPhamChiTiets = new HashSet<SanPhamChiTiet>();
         }
-
         [Key]
         [Required(ErrorMessage = "ID bắt buộc")]
         public Guid? Id { get; set; }
@@ -28,10 +27,7 @@ namespace _1_DAL.Models
         [StringLength(50, ErrorMessage = "Tên phải có tối da 50 kí tự")]
         public string Ten { get; set; }
         public int TrangThai { get; set; }
-        [InverseProperty(nameof(NhanVien.IdChucVuNavigation))]
-        public virtual ICollection<NhanVien> NhanViens { get; set; }
 
+        public virtual ICollection<SanPhamChiTiet> SanPhamChiTiets { get; set; }
     }
 }
-
-

@@ -10,12 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\1_DAL\1_DAL.csproj" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Properties\" />
+    <ProjectReference Include="..\2_BUS\2_BUS.csproj" />
   </ItemGroup>
 
 </Project>
