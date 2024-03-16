@@ -42,6 +42,8 @@ namespace _1_DAL.DBContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
           optionsBuilder.UseSqlServer("Data Source=NGUYEN\\SQLEXPRESS;Initial Catalog=DuAn1;Integrated Security=True;Encrypt=False");
+            // thay đg dẫn sql
+            //xong update-database , phải done thì mới thành công
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
