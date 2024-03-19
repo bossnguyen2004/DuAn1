@@ -443,9 +443,9 @@
             dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNhanVien.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, maDataGridViewTextBoxColumn, hoDataGridViewTextBoxColumn, tenDataGridViewTextBoxColumn, gioiTinhDataGridViewTextBoxColumn, namSinhDataGridViewTextBoxColumn, queQuanDataGridViewTextBoxColumn, sdtDataGridViewTextBoxColumn, matKhauDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, cMNDDataGridViewTextBoxColumn, idCvDataGridViewTextBoxColumn, trangThaiDataGridViewTextBoxColumn, anhDataGridViewImageColumn });
             dgvNhanVien.DataSource = nhanVienViewModelsBindingSource;
-            dgvNhanVien.Location = new Point(10, 309);
+            dgvNhanVien.Location = new Point(10, 320);
             dgvNhanVien.Name = "dgvNhanVien";
-            dgvNhanVien.Size = new Size(884, 150);
+            dgvNhanVien.Size = new Size(901, 150);
             dgvNhanVien.TabIndex = 13;
             dgvNhanVien.CellClick += dgvNhanVien_CellClick;
             dgvNhanVien.CellContentClick += dgvNhanVien_CellContentClick;

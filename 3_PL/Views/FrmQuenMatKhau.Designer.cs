@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQuenMatKhau));
             splitContainer1 = new SplitContainer();
-            label1 = new Label();
             pictureBox1 = new PictureBox();
-            label2 = new Label();
-            txtEmail = new TextBox();
-            btnSend = new Button();
-            btnNhapMa = new Button();
+            label1 = new Label();
+            txtNhapMa = new TextBox();
             btnXacNhan = new Button();
+            btnSend = new Button();
+            txtEmail = new TextBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -52,21 +52,30 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.BackColor = Color.FromArgb(255, 192, 128);
+            splitContainer1.Panel1.BackColor = Color.White;
             splitContainer1.Panel1.Controls.Add(pictureBox1);
             splitContainer1.Panel1.Controls.Add(label1);
             // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = SystemColors.ButtonHighlight;
+            splitContainer1.Panel2.Controls.Add(txtNhapMa);
             splitContainer1.Panel2.Controls.Add(btnXacNhan);
-            splitContainer1.Panel2.Controls.Add(btnNhapMa);
             splitContainer1.Panel2.Controls.Add(btnSend);
             splitContainer1.Panel2.Controls.Add(txtEmail);
             splitContainer1.Panel2.Controls.Add(label2);
             splitContainer1.Size = new Size(638, 378);
             splitContainer1.SplitterDistance = 212;
             splitContainer1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(8, 116);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(196, 205);
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -80,54 +89,13 @@
             label1.TabIndex = 0;
             label1.Text = "Quên Mật Khẩu";
             // 
-            // pictureBox1
+            // txtNhapMa
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(8, 116);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(196, 205);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Red;
-            label2.Location = new Point(60, 116);
-            label2.Name = "label2";
-            label2.Size = new Size(51, 21);
-            label2.TabIndex = 0;
-            label2.Text = "Email:";
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(67, 149);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(214, 23);
-            txtEmail.TabIndex = 1;
-            // 
-            // btnSend
-            // 
-            btnSend.BackColor = SystemColors.ButtonHighlight;
-            btnSend.ForeColor = Color.Red;
-            btnSend.Location = new Point(306, 153);
-            btnSend.Name = "btnSend";
-            btnSend.Size = new Size(75, 23);
-            btnSend.TabIndex = 2;
-            btnSend.Text = "Send";
-            btnSend.UseVisualStyleBackColor = false;
-            // 
-            // btnNhapMa
-            // 
-            btnNhapMa.BackColor = SystemColors.ButtonHighlight;
-            btnNhapMa.ForeColor = Color.Red;
-            btnNhapMa.Location = new Point(82, 196);
-            btnNhapMa.Name = "btnNhapMa";
-            btnNhapMa.Size = new Size(90, 37);
-            btnNhapMa.TabIndex = 3;
-            btnNhapMa.Text = "Nhập Mã OTP";
-            btnNhapMa.UseVisualStyleBackColor = false;
+            txtNhapMa.Location = new Point(67, 209);
+            txtNhapMa.Name = "txtNhapMa";
+            txtNhapMa.Size = new Size(121, 23);
+            txtNhapMa.TabIndex = 5;
+            txtNhapMa.Text = "Nhập Mã OTP";
             // 
             // btnXacNhan
             // 
@@ -140,6 +108,37 @@
             btnXacNhan.TabIndex = 4;
             btnXacNhan.Text = "Xác Nhận";
             btnXacNhan.UseVisualStyleBackColor = false;
+            btnXacNhan.Click += btnXacNhan_Click;
+            // 
+            // btnSend
+            // 
+            btnSend.BackColor = SystemColors.ButtonHighlight;
+            btnSend.ForeColor = Color.Red;
+            btnSend.Location = new Point(306, 153);
+            btnSend.Name = "btnSend";
+            btnSend.Size = new Size(75, 23);
+            btnSend.TabIndex = 2;
+            btnSend.Text = "Send";
+            btnSend.UseVisualStyleBackColor = false;
+            btnSend.Click += btnSend_Click;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(67, 149);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(214, 23);
+            txtEmail.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(60, 116);
+            label2.Name = "label2";
+            label2.Size = new Size(51, 21);
+            label2.TabIndex = 0;
+            label2.Text = "Email:";
             // 
             // FrmQuenMatKhau
             // 
@@ -165,9 +164,9 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button btnXacNhan;
-        private Button btnNhapMa;
         private Button btnSend;
         private TextBox txtEmail;
         private Label label2;
+        private TextBox txtNhapMa;
     }
 }

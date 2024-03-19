@@ -82,7 +82,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.BackColor = Color.FromArgb(255, 192, 128);
+            splitContainer1.Panel1.BackColor = Color.White;
             splitContainer1.Panel1.Controls.Add(pictureBox2);
             splitContainer1.Panel1.Controls.Add(label15);
             // 
