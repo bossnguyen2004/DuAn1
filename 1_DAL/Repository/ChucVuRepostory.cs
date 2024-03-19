@@ -35,7 +35,7 @@ namespace _1_DAL.Repository
                     daTaCv.Id = chucVu.Id;
                     daTaCv.Ma = chucVu.Ma;
                     daTaCv.Ten = chucVu.Ten;
-                    _DBcontext.ChucVus.Add(daTaCv);
+                    _DBcontext.ChucVus.Update(daTaCv);
                     _DBcontext.SaveChanges();
                     return true;
 

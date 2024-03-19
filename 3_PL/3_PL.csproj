@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
+    <PackageReference Include="ActionListWinForms" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

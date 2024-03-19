@@ -71,6 +71,7 @@
             txtmatKhau.Name = "txtmatKhau";
             txtmatKhau.Size = new Size(219, 23);
             txtmatKhau.TabIndex = 3;
+            txtmatKhau.TextChanged += txtmatKhau_TextChanged;
             // 
             // label2
             // 
@@ -94,6 +95,7 @@
             btnDangKy.TabIndex = 4;
             btnDangKy.Text = "Đăng Ký";
             btnDangKy.UseVisualStyleBackColor = false;
+            btnDangKy.Click += btnDangKy_Click;
             // 
             // btnDangNhap
             // 
@@ -106,6 +108,7 @@
             btnDangNhap.TabIndex = 5;
             btnDangNhap.Text = "Đăng Nhập";
             btnDangNhap.UseVisualStyleBackColor = false;
+            btnDangNhap.Click += btnDangNhap_Click;
             // 
             // ckbHTMK
             // 
@@ -116,6 +119,7 @@
             ckbHTMK.TabIndex = 6;
             ckbHTMK.Text = "Hiển thị mật khẩu";
             ckbHTMK.UseVisualStyleBackColor = true;
+            ckbHTMK.CheckedChanged += ckbHTMK_CheckedChanged;
             // 
             // linkQMK
             // 
@@ -126,6 +130,7 @@
             linkQMK.TabIndex = 7;
             linkQMK.TabStop = true;
             linkQMK.Text = "Quên mật khẩu";
+            linkQMK.Click += linkQMK_Click;
             // 
             // splitContainer1
             // 

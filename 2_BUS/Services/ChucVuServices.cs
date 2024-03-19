@@ -1,5 +1,8 @@
 ﻿using _1_DAL.IRepositories;
 using _1_DAL.Models;
+using _1_DAL.Repository;
+using _2_BUS.IServices;
+using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,31 +11,105 @@ using System.Threading.Tasks;
 
 namespace _2_BUS.Services
 {
-    public class ChucVuServices : IChucVuRepositories
+    public class ChucVuServices : IChucVuServices
     {
-        public List<ChucVu> GetAll()
+        private IChucVuRepositories _chucVurepository;
+        private INhanVienRepositories _nhanVienRepository;
+
+        public ChucVuServices()
         {
-            throw new NotImplementedException();
+            _chucVurepository = new ChucVuRepostory();
+            _nhanVienRepository = new NhanVienRepostory();
         }
 
-        public bool Sua(ChucVu chucVu)
+
+
+        public List<ChucVuViewModels> GetAll()
         {
-            throw new NotImplementedException();
+            var lstchucVuModel = _chucVurepository.GetAll();
+            var lstchucVuVM = new List<ChucVuViewModels>();
+            foreach (var item in lstchucVuModel)
+            {
+                var chucVu = new ChucVuViewModels
+                {
+                    Id = item.Id.GetValueOrDefault(),
+                    Ma = item.Ma,
+                    Ten = item.Ten,
+                    TrangThai = item.TrangThai,
+                };
+                lstchucVuVM.Add(chucVu);
+            }
+            return lstchucVuVM;
         }
 
-        public bool Them(ChucVu chucVu)
+       
+        public List<ChucVuViewModels> GetChucVu()
         {
-            throw new NotImplementedException();
+            return (from a in _chucVurepository.GetAll()
+                    join b in _nhanVienRepository.GetAll() on a.Id equals b.IdCv
+                    select new ChucVuViewModels
+                    {
+                        Id = a.Id.GetValueOrDefault(),
+                        IdNv = b.Id,
+                        Ten = a.Ten,
+                    }).ToList();
         }
 
-        public List<ChucVu> TimKiem(string Ma)
+
+        public bool Sua(ChucVuViewModels chucVu)
         {
-            throw new NotImplementedException();
+            var lstchucVu = new ChucVu
+            {
+                Id = chucVu.Id,
+                Ma = chucVu.Ma,
+                Ten = chucVu.Ten,
+                TrangThai = chucVu.TrangThai,
+            };
+            var reluts = _chucVurepository.Sua(lstchucVu);
+            return reluts;
+        }
+
+      
+
+        public bool Them(ChucVuViewModels chucVu)
+        {
+            var lstchucvu = new ChucVu
+            {
+                Id = Guid.NewGuid(),
+                Ma = chucVu.Ma,
+                Ten = chucVu.Ten,
+                TrangThai = chucVu.TrangThai,
+            };
+            var reluts = _chucVurepository.Them(lstchucvu);
+            return reluts;
+        }
+
+        public List<ChucVuViewModels> TimKiem(string Ma)
+        {
+           var lstchucVuModel = _chucVurepository.TimKiem(Ma);
+            var lstchucVuVM = new List<ChucVuViewModels>();
+            foreach (var item in lstchucVuModel)
+            {
+                var chucVu = new ChucVuViewModels
+                {
+                    Id = item.Id.GetValueOrDefault(),
+                    Ma = item.Ma,
+                    Ten = item.Ten,
+                    TrangThai = item.TrangThai,
+                };
+                lstchucVuVM.Add(chucVu);
+            }
+            return lstchucVuVM;
         }
 
         public bool Xoa(Guid Id)
         {
-            throw new NotImplementedException();
+            var lstchucvu = _chucVurepository.Xoa(Id);
+            return lstchucvu;
         }
+
+       
+
+       
     }
 }
