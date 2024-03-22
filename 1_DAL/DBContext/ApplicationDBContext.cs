@@ -47,6 +47,10 @@ namespace _1_DAL.DBContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            // cấu hình cho mối quan hệ và thuộc tính
+            //các quan hệ giữa các bảng (entities) trong cơ sở dữ liệu
+            //Mỗi lệnh trong OnModelCreating đều định nghĩa một phần của cấu trúc cơ sở dữ liệu 
             modelBuilder.Entity<HoaDonChiTiet>(entity =>
             {
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
