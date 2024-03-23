@@ -50,9 +50,6 @@ namespace _3_PL.Views
         }
 
 
-
-
-
         private void loadData()
         {
             bindingData();

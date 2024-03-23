@@ -1,8 +1,12 @@
-﻿using _2_BUS.IServices;
+﻿using _1_DAL.IRepositories;
+using _1_DAL.Models;
+using _1_DAL.Repository;
+using _2_BUS.IServices;
 using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,34 +14,60 @@ namespace _2_BUS.Services
 {
     public class KhachHangServices : IKhachHangServices
     {
-        public List<KhachHangViewModels> GetAll()
+        private IKhachHangRepositories _repository;
+
+        public KhachHangServices()
         {
-            throw new NotImplementedException();
+            _repository = new KhachHangRepository();
         }
 
-        public List<KhachHangViewModels> GetKhachHang()
+        public List<KhachHang> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
-        public bool Sua(KhachHangViewModels khachHang)
+        public bool Add(string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh, int trangThai)
         {
-            throw new NotImplementedException();
+            var khachHang = new KhachHang
+            {
+                Id = Guid.NewGuid(),
+                Ma = ma,
+                Ten = ten,
+                Sdt = sdt,
+                DiaChi = diaChi,
+                Email = email,
+                GioiTinh = gioiTinh,
+                NamSinh = namSinh,
+                TrangThai = trangThai
+            };
+            return _repository.Add(khachHang);
         }
 
-        public bool Them(KhachHangViewModels khachHang)
+        public bool Update(Guid id, string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh, int trangThai)
         {
-            throw new NotImplementedException();
+            var khachHang = new KhachHang
+            {
+                Id = id,
+                Ma = ma,
+                Ten = ten,
+                Sdt = sdt,
+                DiaChi = diaChi,
+                Email = email,
+                GioiTinh = gioiTinh,
+                NamSinh = namSinh,
+                TrangThai = trangThai
+            };
+            return _repository.Update(khachHang);
         }
 
-        public List<KhachHangViewModels> TimKiem(string Ma)
+        public bool Delete(Guid id)
         {
-            throw new NotImplementedException();
-        }
+            var khachHang = new KhachHang
+            {
 
-        public bool Xoa(Guid Id)
-        {
-            throw new NotImplementedException();
+                Id = id
+            };
+            return _repository.Delete(khachHang);
         }
     }
 }

@@ -37,7 +37,7 @@ namespace _1_DAL.Repository
 
         public bool Delete(Guid Id)
         {
-            var nhanVien = _dbContext.NhanViens.Find();
+            var nhanVien = _dbContext.NhanViens.Find(Id);
             if (nhanVien != null)
             {
                 _dbContext.NhanViens.Remove(nhanVien);

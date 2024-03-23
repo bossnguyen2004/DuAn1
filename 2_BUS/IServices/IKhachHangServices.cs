@@ -1,4 +1,5 @@
-﻿using _2_BUS.ViewModels;
+﻿using _1_DAL.Models;
+using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace _2_BUS.IServices
 {
     public interface IKhachHangServices
     {
-        List<KhachHangViewModels> GetAll();
-        bool Them(KhachHangViewModels khachHang);
-        bool Sua(KhachHangViewModels khachHang);
-        bool Xoa(Guid Id);
-        public List<KhachHangViewModels> GetKhachHang();
-        List<KhachHangViewModels> TimKiem(string Ma);
+     
+        List<KhachHang> GetAll();
+        bool Add(string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh, int trangThai);
+        bool Update(Guid id, string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh, int trangThai);
+        bool Delete(Guid id);
     }
 }
+                                        

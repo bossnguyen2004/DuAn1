@@ -11,7 +11,7 @@ namespace _1_DAL.IRepositories
     {
         List<ChatLieu> GetAll();
         bool Them(ChatLieu chatLieu);
-        bool Xoa(Guid Id);
+        bool Xoa(ChatLieu chatLieu);
         bool Sua(ChatLieu chatLieu);
     }
 }

@@ -1,4 +1,7 @@
-﻿using _2_BUS.IServices;
+﻿using _1_DAL.IRepositories;
+using _1_DAL.Models;
+using _1_DAL.Repository;
+using _2_BUS.IServices;
 using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,24 +13,49 @@ namespace _2_BUS.Services
 {
     public class ChatLieuServices : IChatLieuServices
     {
-        public List<ChatLieuViewModels> GetAll()
+        private ChatLieuRepository _repository;
+
+        public ChatLieuServices()
         {
-            throw new NotImplementedException();
+            _repository = new ChatLieuRepository();
         }
 
-        public bool Sua(ChatLieuViewModels chatLieuViewModels)
+        public List<ChatLieu> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
-        public bool Them(ChatLieuViewModels chatLieuViewModels)
+        public bool Sua(Guid Id, string ma, string ten, int trangThai)
         {
-            throw new NotImplementedException();
+            var chatLieu = new ChatLieu
+            {
+                Id = Id,
+                Ma = ma,
+                Ten = ten,
+               TrangThai = trangThai,
+            };
+            return _repository.Sua(chatLieu);
+        }
+
+        public bool Them(string ma, string ten, int trangThai)
+        {
+            var chatLieu = new ChatLieu
+            {
+                Id = Guid.NewGuid(),
+                Ma = ma,
+                Ten = ten,
+               TrangThai = trangThai
+            };
+            return _repository.Them(chatLieu);
         }
 
         public bool Xoa(Guid Id)
         {
-            throw new NotImplementedException();
+            var chatLieu = new ChatLieu
+            {
+                Id = Id,
+            };
+            return _repository.Xoa(chatLieu);
         }
     }
 }

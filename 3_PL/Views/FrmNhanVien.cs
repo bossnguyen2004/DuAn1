@@ -307,14 +307,27 @@ namespace _3_PL.Views
 
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dgvNhanVien.Rows[e.RowIndex];
 
-            this.ptbAnh.Image = ConvertByteArrayToImg((byte[])row.Cells[14].Value);
-            objSelected = _lstnhanVienVM[e.RowIndex];
-            if (objSelected != null)
+            if (e.RowIndex >= 0 && e.RowIndex < dgvNhanVien.Rows.Count)
             {
-                bindingDataForControl(objSelected);
+                DataGridViewRow row = dgvNhanVien.Rows[e.RowIndex];
+
+                if (row.Cells.Count > 14 && row.Cells[14].Value != null)
+                {
+                    this.ptbAnh.Image = ConvertByteArrayToImg((byte[])row.Cells[14].Value);
+                }
+
+                if (_lstnhanVienVM != null && e.RowIndex < _lstnhanVienVM.Count)
+                {
+                    objSelected = _lstnhanVienVM[e.RowIndex];
+                    if (objSelected != null)
+                    {
+                        bindingDataForControl(objSelected);
+                    }
+                }
             }
+
+
         }
 
         private void btnChonAnh_Click(object sender, EventArgs e)
