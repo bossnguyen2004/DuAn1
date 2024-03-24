@@ -10,8 +10,8 @@ namespace _1_DAL.IRepositories
     public interface INhaSanXuatRepositories
     {
         List<NhaSanXuat> GetAll();
-        bool Them(MauSac mauSac);
-        bool Xoa(Guid Id);
-        bool Sua(MauSac mauSac);
+        bool Them(NhaSanXuat nhaSanXuat);
+        bool Xoa(NhaSanXuat nhaSanXuat);
+        bool Sua(NhaSanXuat nhaSanXuat);
     }
 }

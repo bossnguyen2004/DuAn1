@@ -1,4 +1,5 @@
-﻿using _2_BUS.IServices;
+﻿using _1_DAL.Models;
+using _2_BUS.IServices;
 using _2_BUS.Services;
 using _2_BUS.ViewModels;
 using System;
@@ -13,48 +14,42 @@ using System.Windows.Forms;
 
 namespace _3_PL.Views
 {
-    public partial class FrmChatLieu : Form
+    public partial class FrmNhaSanXuat : Form
     {
-        private IChatLieuServices _lstChatLieuServices;
+        private INhaSanXuatServices _lstNhaSanXuat;
         private string Id = "";
-        private List<ChatLieuViewModels> _lstchatLieuViewModels;
-        private ChatLieuViewModels ChatLieuViewModels;
+        private List<NhaSanXuatViewModels> _lstNhaSanXuatViewModels;
+        private NhaSanXuatViewModels nhaSanXuatViewModels;
 
-        public FrmChatLieu()
+        public FrmNhaSanXuat()
         {
             InitializeComponent();
+            _lstNhaSanXuat = new NhaSanXuatServices();
+            _lstNhaSanXuatViewModels = new List<NhaSanXuatViewModels>();
+            nhaSanXuatViewModels = new NhaSanXuatViewModels();
             initGridView();
-
-            _lstChatLieuServices = new ChatLieuServices();
-            _lstchatLieuViewModels = new List<ChatLieuViewModels>();
-            ChatLieuViewModels = new ChatLieuViewModels();
             LoadData();
-        }
-
-        private void FrmChatLieu_Load(object sender, EventArgs e)
-        {
-
         }
         private void initGridView()
         {
-            dgvChatLieu.ColumnCount = 5;
-            dgvChatLieu.Columns[0].Name = "Id";
-            dgvChatLieu.Columns[0].Visible = false;
-            dgvChatLieu.Columns[1].Name = "STT";
-            dgvChatLieu.Columns[2].Name = "Mã ";
-            dgvChatLieu.Columns[3].Name = "Tên Chất Liệu";     
-            dgvChatLieu.Columns[4].Name = "Trạng thái";
-            dgvChatLieu.AllowUserToAddRows = false;
-            dgvChatLieu.Rows.Clear();
+            dgvNhaSanXuat.ColumnCount = 5;
+            dgvNhaSanXuat.Columns[0].Name = "Id";
+            dgvNhaSanXuat.Columns[0].Visible = false;
+            dgvNhaSanXuat.Columns[1].Name = "STT";
+            dgvNhaSanXuat.Columns[2].Name = "Mã ";
+            dgvNhaSanXuat.Columns[3].Name = "Tên Nhà Sản Xuất";
+            dgvNhaSanXuat.Columns[4].Name = "Trạng thái";
+            dgvNhaSanXuat.AllowUserToAddRows = false;
+            dgvNhaSanXuat.Rows.Clear();
         }
         public void LoadData()
         {
-            dgvChatLieu.Rows.Clear();
+            dgvNhaSanXuat.Rows.Clear();
             int stt = 1;
-            var listData = _lstChatLieuServices.GetAll();
+            var listData = _lstNhaSanXuat.GetAll();
             foreach (var item in listData)
             {
-                dgvChatLieu.Rows.Add(
+                dgvNhaSanXuat.Rows.Add(
                      item.Id,
                      stt++,
                      item.Ma,
@@ -64,6 +59,7 @@ namespace _3_PL.Views
             }
 
         }
+
         private void clearForm()
         {
             txtMa.Text = txtTen.Text = " ";
@@ -72,14 +68,17 @@ namespace _3_PL.Views
             Id = "";
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            
+            txtMa.Text = txtTen.Text = " ";
+            ckHoatdong.Checked = ckKHD.Checked = false;
+            txtMa.Focus();
+            Id = "";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn thêm chất liệu  không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn thêm nha san xuat  không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -87,7 +86,7 @@ namespace _3_PL.Views
                 int trangThai = 1;
                 if (ckKHD.Checked)
                     trangThai = 0;
-                var ketQua = _lstChatLieuServices.Them(txtMa.Text, txtTen.Text, trangThai);
+                var ketQua = _lstNhaSanXuat.Them(txtMa.Text, txtTen.Text, trangThai);
                 if (ketQua)
                 {
                     MessageBox.Show("Thêm mới thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -99,22 +98,21 @@ namespace _3_PL.Views
             }
         }
 
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(Id))
             {
-                MessageBox.Show("Vui lòng chọn chất liệu muốn sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn nhà sản xuất muốn sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn sửa Chat Lieu không?", "Thông Báo", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn sửa nha san xuat không?", "Thông Báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 int trangThai = 1;
                 if (ckKHD.Checked)
                     trangThai = 0;
                 Guid id = Guid.Parse(Id);
-                var ketQua = _lstChatLieuServices.Sua(id, txtMa.Text, txtTen.Text, trangThai);
+                var ketQua = _lstNhaSanXuat.Sua(id, txtMa.Text, txtTen.Text, trangThai);
                 if (ketQua)
                 {
                     MessageBox.Show("Sửa thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -128,17 +126,16 @@ namespace _3_PL.Views
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
             if (String.IsNullOrEmpty(Id))
             {
-                MessageBox.Show("Vui lòng chọn chất liệu muốn xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn nhà sản xuất muốn xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            DialogResult dialogResult = MessageBox.Show("Bạn có muốn xoa chất liệu không?", "Thông Báo", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn xoa nhà sản xuất không?", "Thông Báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Guid id = Guid.Parse(Id);
-                var ketQua = _lstChatLieuServices.Xoa(id);
+                var ketQua = _lstNhaSanXuat.Xoa(id);
                 if (ketQua)
                 {
                     MessageBox.Show("xóa thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -150,14 +147,6 @@ namespace _3_PL.Views
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtMa.Text = txtTen.Text = " ";
-            ckHoatdong.Checked = ckKHD.Checked = false;
-            txtMa.Focus();
-            Id = "";
-        }
-
         private void ckHoatdong_CheckedChanged(object sender, EventArgs e)
         {
             if (ckHoatdong.Checked)
@@ -165,7 +154,6 @@ namespace _3_PL.Views
                 ckHoatdong.Checked = true;
                 ckKHD.Checked = false;
             }
-
         }
 
         private void ckKHD_CheckedChanged(object sender, EventArgs e)
@@ -177,11 +165,12 @@ namespace _3_PL.Views
             }
         }
 
-        private void dgvChatLieu_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvNhaSanXuat_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow r = dgvChatLieu.Rows[e.RowIndex];
+                DataGridViewRow r = dgvNhaSanXuat.Rows[e.RowIndex];
                 Id = r.Cells[0].Value.ToString();
                 txtMa.Text = r.Cells[2].Value.ToString();
                 txtTen.Text = r.Cells[3].Value.ToString();
