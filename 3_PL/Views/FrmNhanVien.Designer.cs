@@ -345,14 +345,14 @@
             groupBox2.Controls.Add(btnThem);
             groupBox2.Location = new Point(524, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(370, 262);
+            groupBox2.Size = new Size(315, 262);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức Năng";
             // 
             // btnChonAnh
             // 
-            btnChonAnh.Location = new Point(224, 173);
+            btnChonAnh.Location = new Point(165, 173);
             btnChonAnh.Name = "btnChonAnh";
             btnChonAnh.Size = new Size(104, 34);
             btnChonAnh.TabIndex = 6;
@@ -363,7 +363,7 @@
             // ptbAnh
             // 
             ptbAnh.BackColor = Color.FromArgb(192, 255, 255);
-            ptbAnh.Location = new Point(182, 20);
+            ptbAnh.Location = new Point(139, 23);
             ptbAnh.Name = "ptbAnh";
             ptbAnh.Size = new Size(166, 132);
             ptbAnh.TabIndex = 5;
@@ -445,7 +445,7 @@
             dgvNhanVien.DataSource = nhanVienViewModelsBindingSource;
             dgvNhanVien.Location = new Point(10, 320);
             dgvNhanVien.Name = "dgvNhanVien";
-            dgvNhanVien.Size = new Size(901, 150);
+            dgvNhanVien.Size = new Size(829, 165);
             dgvNhanVien.TabIndex = 13;
             dgvNhanVien.CellClick += dgvNhanVien_CellClick;
             dgvNhanVien.CellContentClick += dgvNhanVien_CellContentClick;
@@ -543,7 +543,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(913, 462);
+            ClientSize = new Size(870, 497);
             Controls.Add(dgvNhanVien);
             Controls.Add(btnTimKiem);
             Controls.Add(txtTimKiem);

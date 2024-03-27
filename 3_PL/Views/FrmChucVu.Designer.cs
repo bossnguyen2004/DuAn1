@@ -49,6 +49,7 @@
             tenDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             trangThaiDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             chucVuViewModelsBindingSource = new BindingSource(components);
+            label4 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvChucVu).BeginInit();
@@ -73,7 +74,7 @@
             // 
             // btnThem
             // 
-            btnThem.Location = new Point(6, 28);
+            btnThem.Location = new Point(32, 31);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(105, 26);
             btnThem.TabIndex = 2;
@@ -99,7 +100,7 @@
             // 
             // btnSua
             // 
-            btnSua.Location = new Point(6, 71);
+            btnSua.Location = new Point(32, 76);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(105, 29);
             btnSua.TabIndex = 5;
@@ -109,7 +110,7 @@
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(6, 111);
+            btnXoa.Location = new Point(32, 111);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(105, 28);
             btnXoa.TabIndex = 6;
@@ -119,7 +120,7 @@
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(6, 150);
+            btnClear.Location = new Point(32, 150);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(105, 29);
             btnClear.TabIndex = 7;
@@ -129,7 +130,7 @@
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(6, 185);
+            btnLuu.Location = new Point(32, 185);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(105, 33);
             btnLuu.TabIndex = 8;
@@ -139,14 +140,17 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(chbHoatdong);
+            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txtMa);
+            groupBox1.Controls.Add(txtTimKiem);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(txtTen);
             groupBox1.Location = new Point(24, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(325, 175);
+            groupBox1.Size = new Size(618, 232);
             groupBox1.TabIndex = 9;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông Tin";
@@ -154,7 +158,7 @@
             // chbHoatdong
             // 
             chbHoatdong.AutoSize = true;
-            chbHoatdong.Location = new Point(81, 130);
+            chbHoatdong.Location = new Point(86, 132);
             chbHoatdong.Name = "chbHoatdong";
             chbHoatdong.Size = new Size(84, 19);
             chbHoatdong.TabIndex = 5;
@@ -168,9 +172,9 @@
             groupBox2.Controls.Add(btnLuu);
             groupBox2.Controls.Add(btnXoa);
             groupBox2.Controls.Add(btnClear);
-            groupBox2.Location = new Point(369, 12);
+            groupBox2.Location = new Point(648, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(139, 232);
+            groupBox2.Size = new Size(171, 232);
             groupBox2.TabIndex = 10;
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức Năng";
@@ -178,7 +182,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(57, 215);
+            label3.Location = new Point(20, 198);
             label3.Name = "label3";
             label3.Size = new Size(60, 15);
             label3.TabIndex = 11;
@@ -186,7 +190,7 @@
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(117, 207);
+            txtTimKiem.Location = new Point(86, 195);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(173, 23);
             txtTimKiem.TabIndex = 12;
@@ -195,14 +199,14 @@
             // dgvChucVu
             // 
             dgvChucVu.AutoGenerateColumns = false;
-            dgvChucVu.BackgroundColor = SystemColors.ButtonFace;
+            dgvChucVu.BackgroundColor = Color.White;
             dgvChucVu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChucVu.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, maDataGridViewTextBoxColumn, tenDataGridViewTextBoxColumn, trangThaiDataGridViewTextBoxColumn });
             dgvChucVu.DataSource = chucVuViewModelsBindingSource;
             dgvChucVu.Location = new Point(24, 250);
             dgvChucVu.Name = "dgvChucVu";
             dgvChucVu.RowHeadersWidth = 51;
-            dgvChucVu.Size = new Size(456, 130);
+            dgvChucVu.Size = new Size(804, 153);
             dgvChucVu.TabIndex = 34;
             dgvChucVu.CellClick += dgvChucVu_CellClick;
             // 
@@ -234,15 +238,22 @@
             // 
             chucVuViewModelsBindingSource.DataSource = typeof(_2_BUS.ViewModels.ChucVuViewModels);
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(20, 133);
+            label4.Name = "label4";
+            label4.Size = new Size(64, 15);
+            label4.TabIndex = 23;
+            label4.Text = "Trạng Thái:";
+            // 
             // FrmChucVu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(529, 400);
+            ClientSize = new Size(831, 400);
             Controls.Add(dgvChucVu);
-            Controls.Add(label3);
-            Controls.Add(txtTimKiem);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "FrmChucVu";
@@ -254,7 +265,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvChucVu).EndInit();
             ((System.ComponentModel.ISupportInitialize)chucVuViewModelsBindingSource).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -279,5 +289,6 @@
         private DataGridViewTextBoxColumn tenDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn trangThaiDataGridViewTextBoxColumn;
         private BindingSource chucVuViewModelsBindingSource;
+        private Label label4;
     }
 }

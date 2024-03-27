@@ -29,6 +29,7 @@ namespace _1_DAL.Models
         public int GioiTinh { get; set; }
         [EmailAddress(ErrorMessage = "Định dạng email không hợp lệ")]
         public string? Email { get; set; }
+        public string Password { get; set; }
         [Column(TypeName = "date")]
         public DateTime? NamSinh { get; set; }
         [RegularExpression(@"^\d{10,12}$", ErrorMessage = "Số điện thoại phải có từ 10 đến 12 chữ số")]

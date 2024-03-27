@@ -55,6 +55,8 @@
             btnSua = new Button();
             btnThem = new Button();
             dgvKhachHang = new DataGridView();
+            txtPassword = new TextBox();
+            label10 = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvKhachHang).BeginInit();
@@ -63,6 +65,8 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.White;
+            groupBox1.Controls.Add(txtPassword);
+            groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(txtEmail);
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(txtTimKiem);
@@ -126,7 +130,7 @@
             // ckKHD
             // 
             ckKHD.AutoSize = true;
-            ckKHD.Location = new Point(411, 122);
+            ckKHD.Location = new Point(411, 166);
             ckKHD.Name = "ckKHD";
             ckKHD.Size = new Size(122, 19);
             ckKHD.TabIndex = 15;
@@ -137,7 +141,7 @@
             // ckHD
             // 
             ckHD.AutoSize = true;
-            ckHD.Location = new Point(317, 123);
+            ckHD.Location = new Point(317, 167);
             ckHD.Name = "ckHD";
             ckHD.Size = new Size(84, 19);
             ckHD.TabIndex = 14;
@@ -148,7 +152,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(248, 125);
+            label7.Location = new Point(248, 169);
             label7.Name = "label7";
             label7.Size = new Size(64, 15);
             label7.TabIndex = 13;
@@ -174,7 +178,7 @@
             // rdNu
             // 
             rdNu.AutoSize = true;
-            rdNu.Location = new Point(383, 74);
+            rdNu.Location = new Point(383, 118);
             rdNu.Name = "rdNu";
             rdNu.Size = new Size(41, 19);
             rdNu.TabIndex = 10;
@@ -186,7 +190,7 @@
             // rdNam
             // 
             rdNam.AutoSize = true;
-            rdNam.Location = new Point(317, 73);
+            rdNam.Location = new Point(317, 117);
             rdNam.Name = "rdNam";
             rdNam.Size = new Size(51, 19);
             rdNam.TabIndex = 9;
@@ -198,7 +202,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(253, 72);
+            label5.Location = new Point(253, 116);
             label5.Name = "label5";
             label5.Size = new Size(57, 15);
             label5.TabIndex = 8;
@@ -333,11 +337,28 @@
             dgvKhachHang.TabIndex = 2;
             dgvKhachHang.CellClick += dgvKhachHang_CellClick;
             // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(306, 62);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(141, 23);
+            txtPassword.TabIndex = 21;
+            txtPassword.TextChanged += txtPassword_TextChanged;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(249, 70);
+            label10.Name = "label10";
+            label10.Size = new Size(60, 15);
+            label10.TabIndex = 20;
+            label10.Text = "Password:";
+            // 
             // FrmKhachHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(741, 472);
+            ClientSize = new Size(772, 472);
             Controls.Add(dgvKhachHang);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -379,5 +400,7 @@
         private Label label8;
         private TextBox txtEmail;
         private Label label9;
+        private TextBox txtPassword;
+        private Label label10;
     }
 }

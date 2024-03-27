@@ -26,7 +26,7 @@ namespace _2_BUS.Services
             return _repository.GetAll();
         }
 
-        public bool Add(string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh, int trangThai)
+        public bool Add(string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh, string password, int trangThai)
         {
             var khachHang = new KhachHang
             {
@@ -38,12 +38,13 @@ namespace _2_BUS.Services
                 Email = email,
                 GioiTinh = gioiTinh,
                 NamSinh = namSinh,
+                Password = password,
                 TrangThai = trangThai
             };
             return _repository.Add(khachHang);
         }
 
-        public bool Update(Guid id, string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh, int trangThai)
+        public bool Update(Guid id, string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh, string password, int trangThai)
         {
             var khachHang = new KhachHang
             {
@@ -55,6 +56,7 @@ namespace _2_BUS.Services
                 Email = email,
                 GioiTinh = gioiTinh,
                 NamSinh = namSinh,
+                Password= password,
                 TrangThai = trangThai
             };
             return _repository.Update(khachHang);

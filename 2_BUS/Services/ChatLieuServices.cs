@@ -13,13 +13,15 @@ namespace _2_BUS.Services
 {
     public class ChatLieuServices : IChatLieuServices
     {
-        private ChatLieuRepository _repository;
-
+       private IChatLieuRepositories _repository;
+       
         public ChatLieuServices()
         {
             _repository = new ChatLieuRepository();
+          
         }
 
+      
         public List<ChatLieu> GetAll()
         {
             return _repository.GetAll();
@@ -32,7 +34,7 @@ namespace _2_BUS.Services
                 Id = Id,
                 Ma = ma,
                 Ten = ten,
-               TrangThai = trangThai,
+                TrangThai = trangThai,
             };
             return _repository.Sua(chatLieu);
         }
@@ -44,10 +46,12 @@ namespace _2_BUS.Services
                 Id = Guid.NewGuid(),
                 Ma = ma,
                 Ten = ten,
-               TrangThai = trangThai
+                TrangThai = trangThai
             };
             return _repository.Them(chatLieu);
         }
+
+        
 
         public bool Xoa(Guid Id)
         {

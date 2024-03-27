@@ -1,4 +1,6 @@
-﻿using _2_BUS.IServices;
+﻿using _1_DAL.Models;
+using _1_DAL.Repository;
+using _2_BUS.IServices;
 using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,24 +12,50 @@ namespace _2_BUS.Services
 {
     public class ThanhToanServices : IThanhToanServices
     {
-        public List<ThanhToanViewModels> GetAll()
+        private ThanhToanRepository _repository;
+
+        public ThanhToanServices()
         {
-            throw new NotImplementedException();
+            _repository = new ThanhToanRepository();
         }
 
-        public bool Sua(ThanhToanViewModels obj)
+        public List<ThanhToan> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
-        public bool Them(ThanhToanViewModels obj)
+        public bool Sua(Guid Id, string ma, string ten, int trangThai)
         {
-            throw new NotImplementedException();
+            var TT = new ThanhToan
+            {
+                Id = Id,
+                Ma = ma,
+                Ten = ten,
+                TrangThai = trangThai,
+            };
+            return _repository.Sua(TT);
+        }
+
+        public bool Them(string ma, string ten, int trangThai)
+        {
+            var TT = new ThanhToan
+            {
+                Id = Guid.NewGuid(),
+                Ma = ma,
+                Ten = ten,
+                TrangThai = trangThai
+            };
+            return _repository.Them(TT);
         }
 
         public bool Xoa(Guid Id)
         {
-            throw new NotImplementedException();
+
+            var TT = new ThanhToan
+            {
+                Id = Id,
+            };
+            return _repository.Xoa(TT);
         }
     }
 }

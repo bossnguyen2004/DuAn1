@@ -13,5 +13,6 @@ namespace _2_BUS.ViewModels
         public string Ten { get; set; }
         public int TrangThai { get; set; }
 
+
     }
 }

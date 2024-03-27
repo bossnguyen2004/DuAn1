@@ -1,4 +1,6 @@
-﻿using _2_BUS.IServices;
+﻿using _1_DAL.Models;
+using _1_DAL.Repository;
+using _2_BUS.IServices;
 using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,9 +12,15 @@ namespace _2_BUS.Services
 {
     public class AnhServices : IAnhServices
     {
-        public List<AnhViewModels> GetAll()
+        private AnhRepository _repository;
+
+        public AnhServices()
         {
-            throw new NotImplementedException();
+            _repository = new AnhRepository();
+        }
+        public List<Anh> GetAll()
+        {
+            return _repository.GetAll();
         }
 
         public Guid Id(AnhViewModels img)
@@ -20,19 +28,41 @@ namespace _2_BUS.Services
             throw new NotImplementedException();
         }
 
-        public bool Sua(AnhViewModels img)
+        public bool Sua(Guid Id, string ma, string ten, int trangThai)
         {
-            throw new NotImplementedException();
+            var anh = new Anh
+            {
+               ID = Id,
+               MaAnh = ma,
+               Ten = ten,
+               TrangThai = trangThai,
+            };
+            return _repository.Sua(anh);
         }
 
-        public bool Them(AnhViewModels img)
+        public bool Them(string ma, string ten, int trangThai)
         {
-            throw new NotImplementedException();
+            var anh = new Anh
+            {
+                ID = Guid.NewGuid(),
+                MaAnh = ma,
+                Ten = ten,
+                TrangThai = trangThai,
+            };
+            return _repository.Them(anh);
         }
 
         public bool Xoa(Guid Id)
         {
-            throw new NotImplementedException();
+            var anh = new Anh
+            {
+                ID = Id,
+            };
+            return _repository.Xoa(anh);
+        }
+        public bool timKiem(string ten)
+        {
+            return true;
         }
     }
 }

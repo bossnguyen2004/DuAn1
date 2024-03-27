@@ -10,7 +10,7 @@ namespace _3_PL.Helpers
     public class AccountHelper
     {
         private static AccountHelper _instance;
-        private static NhanVienViewModels _userLoged;
+        private static UserViewModel _userLoged;
 
         public AccountHelper()
         {
@@ -30,14 +30,14 @@ namespace _3_PL.Helpers
         }
      
 
-        public NhanVienViewModels GetUserLoged()
+        public UserViewModel GetUserLoged()
         {
             return _userLoged;
         }
 
-        public void SetUserLogin(NhanVienViewModels nhanVien)
+        public void SetUserLogin(UserViewModel user)
         {
-            _userLoged = nhanVien;
+            _userLoged = user;
         }
 
 

@@ -12,8 +12,8 @@ namespace _2_BUS.IServices
     {
      
         List<KhachHang> GetAll();
-        bool Add(string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh, int trangThai);
-        bool Update(Guid id, string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh, int trangThai);
+        bool Add(string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh,string password, int trangThai);
+        bool Update(Guid id, string ma, string ten, string sdt, string diaChi, string email, int gioiTinh, DateTime namSinh, string password, int trangThai);
         bool Delete(Guid id);
     }
 }

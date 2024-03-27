@@ -10,7 +10,7 @@ namespace _3_PL
             
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmNhaSanXuat());
+            Application.Run(new FrmSanPham());
         }
     }
 }

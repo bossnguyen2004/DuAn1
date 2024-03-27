@@ -54,6 +54,7 @@ namespace _1_DAL.Repository
                     kh.Email = khachHang.Email;
                     kh.GioiTinh = khachHang.GioiTinh;
                     kh.NamSinh = khachHang.NamSinh;
+                    kh.Password = khachHang.Password;
                     kh.TrangThai = khachHang.TrangThai;
                     _dbContext.KhachHangs.Update(kh);
                     _dbContext.SaveChanges();

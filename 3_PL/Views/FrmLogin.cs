@@ -1,6 +1,7 @@
-﻿using _2_BUS.IServices;
+﻿using _1_DAL.Models;
+using _2_BUS.IServices;
 using _2_BUS.Services;
-
+using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,29 +18,54 @@ namespace _3_PL.Views
     public partial class FrmLogin : Form
     {
         private INhanVienServices nhanVienServices;
+        private IUserServices userServices;
+        public static Guid IdNV;
         private string password = string.Empty;
         public FrmLogin()
         {
             InitializeComponent();
             nhanVienServices = new NhanVienServices();
+            userServices = new UserServices();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            txtmatKhau.UseSystemPasswordChar = true;
+            txtMail.Focus();
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtMail.Text.Trim()) && !string.IsNullOrEmpty(password.Trim()))
             {
-                var user = nhanVienServices.Login(txtMail.Text.Trim(), password.Trim());
+                var user = userServices.Login(txtMail.Text.Trim(), txtmatKhau.Text.Trim());
                 if (user != null)
                 {
-                    Helpers.AccountHelper.Instance.SetUserLogin(user);
-                    var formNhanVien = new FrmNhanVien();
+                    var userViewModel = new UserViewModel();
+                    try
+                    {
+                        var nv = (NhanVien)user;
+
+                        // set thong tin cua nhan vien vao userViewModel
+                        userViewModel.IsCutomer = false;
+                        userViewModel.Ho = nv.Ho;
+                        userViewModel.Ten = nv.Ten;
+                    }
+                    catch (Exception)
+                    {
+                        // set thong tin cua khach hang vao userViewModel
+                        var kh = (KhachHang)user;
+                        userViewModel.IsCutomer = true;
+                        userViewModel.Ten = kh.Ten;
+                    }
+                    Helpers.AccountHelper.Instance.SetUserLogin(userViewModel);
+                    this.Hide();
+                    var formNhanVien = new FrmMain();
                     formNhanVien.Show();
-                    this.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Email hoặc password không đúng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

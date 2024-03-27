@@ -28,160 +28,208 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            btnVouCher = new Button();
-            btnDangXuat = new Button();
-            btnThongke = new Button();
-            btnKhachHang = new Button();
-            btnNhanVien = new Button();
-            btnHoaDon = new Button();
-            btnBanHang = new Button();
+            components = new System.ComponentModel.Container();
+            pnMenu = new Panel();
+            pnlSanPham = new Panel();
+            btnNhaSanXuat = new Button();
             btnSanPham = new Button();
-            panel4 = new Panel();
-            label1 = new Label();
-            panel2 = new Panel();
+            pnlNhanVien = new Panel();
+            btnNhanVien = new Button();
+            btnChucVu = new Button();
+            btnQLNhanVien = new Button();
+            btnBanHang = new Button();
+            btnThongKe = new Button();
+            btnHome = new Button();
+            pnlThan = new Panel();
             panel5 = new Panel();
             label3 = new Label();
             panel3 = new Panel();
+            lblUserName = new Label();
+            label5 = new Label();
+            label1 = new Label();
             textBox2 = new TextBox();
-            textBox1 = new TextBox();
             label2 = new Label();
-            panel1.SuspendLayout();
-            panel4.SuspendLayout();
-            panel2.SuspendLayout();
+            timer1 = new System.Windows.Forms.Timer(components);
+            ellipseControlArtan = new Helpers.EllipseControlArtan();
+            ellipseControlArtanMenu = new Helpers.EllipseControlArtan();
+            panel1 = new Panel();
+            label4 = new Label();
+            btnChatLieu = new Button();
+            pnMenu.SuspendLayout();
+            pnlSanPham.SuspendLayout();
+            pnlNhanVien.SuspendLayout();
             panel5.SuspendLayout();
             panel3.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // pnMenu
             // 
-            panel1.BackColor = Color.LightGray;
-            panel1.Controls.Add(btnVouCher);
-            panel1.Controls.Add(btnDangXuat);
-            panel1.Controls.Add(btnThongke);
-            panel1.Controls.Add(btnKhachHang);
-            panel1.Controls.Add(btnNhanVien);
-            panel1.Controls.Add(btnHoaDon);
-            panel1.Controls.Add(btnBanHang);
-            panel1.Controls.Add(btnSanPham);
-            panel1.Controls.Add(panel4);
-            panel1.Location = new Point(6, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(157, 462);
-            panel1.TabIndex = 0;
+            pnMenu.BackColor = Color.LightGray;
+            pnMenu.BorderStyle = BorderStyle.FixedSingle;
+            pnMenu.Controls.Add(pnlSanPham);
+            pnMenu.Controls.Add(pnlNhanVien);
+            pnMenu.Controls.Add(btnBanHang);
+            pnMenu.Controls.Add(btnThongKe);
+            pnMenu.Controls.Add(btnHome);
+            pnMenu.Location = new Point(12, 75);
+            pnMenu.Name = "pnMenu";
+            pnMenu.Size = new Size(151, 537);
+            pnMenu.TabIndex = 0;
             // 
-            // btnVouCher
+            // pnlSanPham
             // 
-            btnVouCher.Location = new Point(0, 348);
-            btnVouCher.Name = "btnVouCher";
-            btnVouCher.Size = new Size(151, 40);
-            btnVouCher.TabIndex = 3;
-            btnVouCher.Text = "VouCher";
-            btnVouCher.UseVisualStyleBackColor = true;
+            pnlSanPham.BackColor = Color.MediumSpringGreen;
+            pnlSanPham.Controls.Add(btnNhaSanXuat);
+            pnlSanPham.Controls.Add(btnChatLieu);
+            pnlSanPham.Controls.Add(btnSanPham);
+            pnlSanPham.Dock = DockStyle.Top;
+            pnlSanPham.Location = new Point(0, 258);
+            pnlSanPham.Margin = new Padding(0);
+            pnlSanPham.Name = "pnlSanPham";
+            pnlSanPham.Size = new Size(149, 125);
+            pnlSanPham.TabIndex = 9;
             // 
-            // btnDangXuat
+            // btnNhaSanXuat
             // 
-            btnDangXuat.Location = new Point(2, 409);
-            btnDangXuat.Name = "btnDangXuat";
-            btnDangXuat.Size = new Size(151, 40);
-            btnDangXuat.TabIndex = 2;
-            btnDangXuat.Text = "Đăng Xuất";
-            btnDangXuat.UseVisualStyleBackColor = true;
-            // 
-            // btnThongke
-            // 
-            btnThongke.Location = new Point(0, 302);
-            btnThongke.Name = "btnThongke";
-            btnThongke.Size = new Size(151, 40);
-            btnThongke.TabIndex = 2;
-            btnThongke.Text = "Thống Kê";
-            btnThongke.UseVisualStyleBackColor = true;
-            // 
-            // btnKhachHang
-            // 
-            btnKhachHang.Location = new Point(2, 256);
-            btnKhachHang.Name = "btnKhachHang";
-            btnKhachHang.Size = new Size(151, 40);
-            btnKhachHang.TabIndex = 2;
-            btnKhachHang.Text = "Khách Hàng";
-            btnKhachHang.UseVisualStyleBackColor = true;
-            // 
-            // btnNhanVien
-            // 
-            btnNhanVien.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnNhanVien.ImageAlign = ContentAlignment.BottomLeft;
-            btnNhanVien.Location = new Point(2, 206);
-            btnNhanVien.Margin = new Padding(2);
-            btnNhanVien.Name = "btnNhanVien";
-            btnNhanVien.Size = new Size(151, 45);
-            btnNhanVien.TabIndex = 2;
-            btnNhanVien.Text = "Nhân Viên";
-            btnNhanVien.UseVisualStyleBackColor = true;
-            // 
-            // btnHoaDon
-            // 
-            btnHoaDon.Location = new Point(3, 161);
-            btnHoaDon.Name = "btnHoaDon";
-            btnHoaDon.Size = new Size(151, 40);
-            btnHoaDon.TabIndex = 2;
-            btnHoaDon.Text = "Hóa Đơn";
-            btnHoaDon.UseVisualStyleBackColor = true;
-            // 
-            // btnBanHang
-            // 
-            btnBanHang.Location = new Point(3, 115);
-            btnBanHang.Name = "btnBanHang";
-            btnBanHang.Size = new Size(151, 40);
-            btnBanHang.TabIndex = 2;
-            btnBanHang.Text = "Bán Hàng";
-            btnBanHang.UseVisualStyleBackColor = true;
+            btnNhaSanXuat.Dock = DockStyle.Top;
+            btnNhaSanXuat.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNhaSanXuat.Location = new Point(0, 75);
+            btnNhaSanXuat.Name = "btnNhaSanXuat";
+            btnNhaSanXuat.Padding = new Padding(20, 0, 0, 0);
+            btnNhaSanXuat.Size = new Size(149, 45);
+            btnNhaSanXuat.TabIndex = 4;
+            btnNhaSanXuat.Text = "Nhà Sản Xuất";
+            btnNhaSanXuat.TextAlign = ContentAlignment.MiddleLeft;
+            btnNhaSanXuat.UseVisualStyleBackColor = true;
+            btnNhaSanXuat.Click += btnNhaSanXuat_Click_1;
             // 
             // btnSanPham
             // 
-            btnSanPham.Location = new Point(3, 70);
+            btnSanPham.Dock = DockStyle.Top;
+            btnSanPham.Image = Properties.Resources.h_nut4;
+            btnSanPham.ImageAlign = ContentAlignment.MiddleRight;
+            btnSanPham.Location = new Point(0, 0);
             btnSanPham.Name = "btnSanPham";
-            btnSanPham.Size = new Size(151, 39);
-            btnSanPham.TabIndex = 1;
-            btnSanPham.Text = "Sản Phẩm";
+            btnSanPham.Padding = new Padding(5, 0, 0, 0);
+            btnSanPham.Size = new Size(149, 45);
+            btnSanPham.TabIndex = 2;
+            btnSanPham.Text = "    QL Sản Phẩm";
+            btnSanPham.TextAlign = ContentAlignment.MiddleLeft;
             btnSanPham.UseVisualStyleBackColor = true;
+            btnSanPham.Click += btnSanPham_Click_1;
             // 
-            // panel4
+            // pnlNhanVien
             // 
-            panel4.BackColor = Color.FromArgb(39, 39, 58);
-            panel4.Controls.Add(label1);
-            panel4.ForeColor = SystemColors.ButtonHighlight;
-            panel4.Location = new Point(3, 3);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(154, 61);
-            panel4.TabIndex = 0;
+            pnlNhanVien.BackColor = Color.LightPink;
+            pnlNhanVien.Controls.Add(btnNhanVien);
+            pnlNhanVien.Controls.Add(btnChucVu);
+            pnlNhanVien.Controls.Add(btnQLNhanVien);
+            pnlNhanVien.Dock = DockStyle.Top;
+            pnlNhanVien.Location = new Point(0, 144);
+            pnlNhanVien.Margin = new Padding(0);
+            pnlNhanVien.Name = "pnlNhanVien";
+            pnlNhanVien.Size = new Size(149, 114);
+            pnlNhanVien.TabIndex = 8;
             // 
-            // label1
+            // btnNhanVien
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe Print", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(3, 13);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 28);
-            label1.TabIndex = 0;
-            label1.Text = "SneaKers-Shoes";
+            btnNhanVien.Dock = DockStyle.Top;
+            btnNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNhanVien.Location = new Point(0, 77);
+            btnNhanVien.Name = "btnNhanVien";
+            btnNhanVien.Padding = new Padding(20, 0, 0, 0);
+            btnNhanVien.Size = new Size(149, 30);
+            btnNhanVien.TabIndex = 4;
+            btnNhanVien.Text = "Nhân Viên";
+            btnNhanVien.TextAlign = ContentAlignment.MiddleLeft;
+            btnNhanVien.UseVisualStyleBackColor = true;
+            btnNhanVien.Click += btnNhanVien_Click_1;
             // 
-            // panel2
+            // btnChucVu
             // 
-            panel2.BackColor = SystemColors.ButtonHighlight;
-            panel2.Controls.Add(panel5);
-            panel2.Controls.Add(panel3);
-            panel2.Location = new Point(166, 2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(634, 462);
-            panel2.TabIndex = 1;
+            btnChucVu.Dock = DockStyle.Top;
+            btnChucVu.ImageAlign = ContentAlignment.MiddleLeft;
+            btnChucVu.Location = new Point(0, 45);
+            btnChucVu.Name = "btnChucVu";
+            btnChucVu.Padding = new Padding(20, 0, 0, 0);
+            btnChucVu.Size = new Size(149, 32);
+            btnChucVu.TabIndex = 3;
+            btnChucVu.Text = " Chức Vụ";
+            btnChucVu.TextAlign = ContentAlignment.MiddleLeft;
+            btnChucVu.UseVisualStyleBackColor = true;
+            btnChucVu.Click += btnChucVu_Click_1;
+            // 
+            // btnQLNhanVien
+            // 
+            btnQLNhanVien.Dock = DockStyle.Top;
+            btnQLNhanVien.Image = Properties.Resources.h_n2;
+            btnQLNhanVien.ImageAlign = ContentAlignment.MiddleRight;
+            btnQLNhanVien.Location = new Point(0, 0);
+            btnQLNhanVien.Name = "btnQLNhanVien";
+            btnQLNhanVien.Padding = new Padding(5, 0, 0, 0);
+            btnQLNhanVien.Size = new Size(149, 45);
+            btnQLNhanVien.TabIndex = 2;
+            btnQLNhanVien.Text = "    QL Nhân Viên";
+            btnQLNhanVien.TextAlign = ContentAlignment.MiddleLeft;
+            btnQLNhanVien.UseVisualStyleBackColor = true;
+            btnQLNhanVien.Click += btnQLNhanVien_Click_1;
+            // 
+            // btnBanHang
+            // 
+            btnBanHang.Dock = DockStyle.Top;
+            btnBanHang.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBanHang.Location = new Point(0, 96);
+            btnBanHang.Name = "btnBanHang";
+            btnBanHang.Padding = new Padding(5, 0, 0, 0);
+            btnBanHang.Size = new Size(149, 48);
+            btnBanHang.TabIndex = 5;
+            btnBanHang.Text = "          Bán Hàng";
+            btnBanHang.TextAlign = ContentAlignment.MiddleLeft;
+            btnBanHang.UseVisualStyleBackColor = true;
+            // 
+            // btnThongKe
+            // 
+            btnThongKe.Dock = DockStyle.Top;
+            btnThongKe.ImageAlign = ContentAlignment.MiddleLeft;
+            btnThongKe.Location = new Point(0, 48);
+            btnThongKe.Name = "btnThongKe";
+            btnThongKe.Padding = new Padding(5, 0, 0, 0);
+            btnThongKe.Size = new Size(149, 48);
+            btnThongKe.TabIndex = 4;
+            btnThongKe.Text = "          Thống Kê";
+            btnThongKe.TextAlign = ContentAlignment.MiddleLeft;
+            btnThongKe.UseVisualStyleBackColor = true;
+            // 
+            // btnHome
+            // 
+            btnHome.Dock = DockStyle.Top;
+            btnHome.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHome.Location = new Point(0, 0);
+            btnHome.Name = "btnHome";
+            btnHome.Padding = new Padding(5, 0, 0, 0);
+            btnHome.Size = new Size(149, 48);
+            btnHome.TabIndex = 1;
+            btnHome.Text = "          Home";
+            btnHome.TextAlign = ContentAlignment.MiddleLeft;
+            btnHome.UseVisualStyleBackColor = true;
+            // 
+            // pnlThan
+            // 
+            pnlThan.BackColor = SystemColors.ButtonHighlight;
+            pnlThan.BorderStyle = BorderStyle.FixedSingle;
+            pnlThan.Location = new Point(173, 75);
+            pnlThan.Name = "pnlThan";
+            pnlThan.Size = new Size(931, 492);
+            pnlThan.TabIndex = 1;
             // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(221, 221, 221);
             panel5.Controls.Add(label3);
-            panel5.Location = new Point(3, 430);
+            panel5.Location = new Point(169, 573);
             panel5.Name = "panel5";
-            panel5.Size = new Size(628, 29);
+            panel5.Size = new Size(935, 39);
             panel5.TabIndex = 1;
             // 
             // label3
@@ -189,86 +237,177 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(170, 7);
+            label3.Location = new Point(205, 9);
             label3.Name = "label3";
-            label3.Size = new Size(319, 17);
+            label3.Size = new Size(333, 17);
             label3.TabIndex = 0;
-            label3.Text = "Sneakes shoes xin cảm ơn quý khách đã ủng hộ shop";
+            label3.Text = "Shoes - Sneakes  xin cảm ơn quý khách đã ủng hộ shop";
+            label3.Click += label3_Click;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(221, 221, 221);
+            panel3.Controls.Add(lblUserName);
+            panel3.Controls.Add(label5);
+            panel3.Controls.Add(label1);
             panel3.Controls.Add(textBox2);
-            panel3.Controls.Add(textBox1);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(3, 3);
+            panel3.Location = new Point(173, 11);
             panel3.Name = "panel3";
-            panel3.Size = new Size(619, 48);
+            panel3.Size = new Size(931, 58);
             panel3.TabIndex = 0;
+            // 
+            // lblUserName
+            // 
+            lblUserName.AutoSize = true;
+            lblUserName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblUserName.ForeColor = Color.Black;
+            lblUserName.Location = new Point(68, 12);
+            lblUserName.Name = "lblUserName";
+            lblUserName.Size = new Size(0, 21);
+            lblUserName.TabIndex = 5;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Snap ITC", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(284, 10);
+            label5.Name = "label5";
+            label5.Size = new Size(291, 31);
+            label5.TabIndex = 4;
+            label5.Text = "Nhà Shoes-Sneakers";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Emoji", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(-161, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(159, 26);
+            label1.TabIndex = 0;
+            label1.Text = "Shoes-Sneakers";
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(461, 6);
+            textBox2.Location = new Point(644, 10);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(108, 23);
+            textBox2.Size = new Size(121, 23);
             textBox2.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(86, 5);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(140, 23);
-            textBox1.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.Red;
-            label2.Location = new Point(11, 13);
+            label2.Location = new Point(4, 18);
             label2.Name = "label2";
             label2.Size = new Size(58, 15);
             label2.TabIndex = 0;
             label2.Text = "Xin Chào:";
             // 
+            // timer1
+            // 
+            timer1.Interval = 10;
+            timer1.Tick += timer1_Tick;
+            // 
+            // ellipseControlArtan
+            // 
+            ellipseControlArtan.CornerRedius = 25;
+            ellipseControlArtan.TargetControl = this;
+            // 
+            // ellipseControlArtanMenu
+            // 
+            ellipseControlArtanMenu.CornerRedius = 25;
+            ellipseControlArtanMenu.TargetControl = pnMenu;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Silver;
+            panel1.Controls.Add(label4);
+            panel1.Location = new Point(13, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(149, 57);
+            panel1.TabIndex = 2;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(3, 12);
+            label4.Name = "label4";
+            label4.Size = new Size(133, 23);
+            label4.TabIndex = 0;
+            label4.Text = "Shoes-Sneakers";
+            label4.Click += label4_Click;
+            // 
+            // btnChatLieu
+            // 
+            btnChatLieu.Dock = DockStyle.Top;
+            btnChatLieu.ImageAlign = ContentAlignment.MiddleLeft;
+            btnChatLieu.Location = new Point(0, 45);
+            btnChatLieu.Name = "btnChatLieu";
+            btnChatLieu.Padding = new Padding(20, 0, 0, 0);
+            btnChatLieu.Size = new Size(149, 30);
+            btnChatLieu.TabIndex = 3;
+            btnChatLieu.Text = "Chất Liệu";
+            btnChatLieu.TextAlign = ContentAlignment.MiddleLeft;
+            btnChatLieu.UseVisualStyleBackColor = true;
+            btnChatLieu.Click += btnChatLieu_Click_1;
+            // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 463);
-            Controls.Add(panel2);
+            ClientSize = new Size(1133, 624);
+            Controls.Add(panel5);
             Controls.Add(panel1);
+            Controls.Add(panel3);
+            Controls.Add(pnlThan);
+            Controls.Add(pnMenu);
             Name = "FrmMain";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmMain";
-            panel1.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel2.ResumeLayout(false);
+            Load += FrmMain_Load;
+            pnMenu.ResumeLayout(false);
+            pnlSanPham.ResumeLayout(false);
+            pnlNhanVien.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private Panel panel4;
-        private Label label1;
-        private Panel panel2;
+        private System.Windows.Forms.Panel pnMenu;
+        private System.Windows.Forms.Panel pnlThan;
         private Panel panel3;
-        private Button btnDangXuat;
-        private Button btnThongke;
-        private Button btnKhachHang;
-        private Button btnNhanVien;
-        private Button btnHoaDon;
-        private Button btnBanHang;
-        private Button btnSanPham;
-        private TextBox textBox1;
         private Label label2;
         private TextBox textBox2;
-        private Button btnVouCher;
         private Panel panel5;
         private Label label3;
+        private System.Windows.Forms.Timer timer1;
+        private Helpers.EllipseControlArtan ellipseControlArtan;
+        private Button btnHome;
+        private Helpers.EllipseControlArtan ellipseControlArtanMenu;
+        private Panel panel1;
+        private Label label1;
+        private Label label4;
+        private Label label5;
+        private Label lblUserName;
+        private Panel pnlSanPham;
+        private Button btnNhaSanXuat;
+        private Button btnSanPham;
+        private Panel pnlNhanVien;
+        private Button btnNhanVien;
+        private Button btnChucVu;
+        private Button btnQLNhanVien;
+        private Button btnBanHang;
+        private Button btnThongKe;
+        private Button btnChatLieu;
     }
 }

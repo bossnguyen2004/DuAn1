@@ -38,7 +38,7 @@ namespace _3_PL.Views
         // vẽ grid view
         private void initGridView()
         {
-            dgvKhachHang.ColumnCount = 10;
+            dgvKhachHang.ColumnCount = 11;
             dgvKhachHang.Columns[0].Name = "Id";
             dgvKhachHang.Columns[0].Visible = false;
             dgvKhachHang.Columns[1].Name = "STT";
@@ -49,7 +49,8 @@ namespace _3_PL.Views
             dgvKhachHang.Columns[6].Name = "Email";
             dgvKhachHang.Columns[7].Name = "Giới tính";
             dgvKhachHang.Columns[8].Name = "Năm Sinh";
-            dgvKhachHang.Columns[9].Name = "Trạng thái";
+            dgvKhachHang.Columns[9].Name = "Password"; 
+            dgvKhachHang.Columns[10].Name = "Trạng thái";
             dgvKhachHang.AllowUserToAddRows = false;
             dgvKhachHang.Rows.Clear();
         }
@@ -71,6 +72,7 @@ namespace _3_PL.Views
                      item.Email,
                      item.GioiTinh == 1 ? "Nam" : "Nữ",
                      item.NamSinh,
+                     item.Password,
                      item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động"
                      );
             }
@@ -108,7 +110,7 @@ namespace _3_PL.Views
                 {
                     ckKHD.Checked = true;
                 }
-
+                txtPassword.Text = r.Cells[10].Value.ToString();
             }
         }
 
@@ -116,7 +118,7 @@ namespace _3_PL.Views
 
         private void clearForm()
         {
-            txtMa.Text = txtTen.Text = txtDiaChi.Text = txtSDT.Text = txtEmail.Text = String.Empty;
+            txtMa.Text = txtTen.Text = txtDiaChi.Text = txtSDT.Text = txtEmail.Text =txtPassword.Text = String.Empty;
             ckHD.Checked = true;
             dtNamSinh.Value = DateTime.Now;
             txtMa.Focus();
@@ -187,7 +189,7 @@ namespace _3_PL.Views
                 if (!ckHD.Checked)
                     trangThai = 0;
                 var ketQua = _lstkhachHangService.Add(txtMa.Text, txtTen.Text, txtSDT.Text,
-                    txtDiaChi.Text, txtEmail.Text, gioiTinh, dtNamSinh.Value, trangThai);
+                    txtDiaChi.Text, txtEmail.Text, gioiTinh, dtNamSinh.Value, txtPassword.Text, trangThai);
                 if (ketQua)
                 {
                     MessageBox.Show("Thêm mới thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -217,7 +219,7 @@ namespace _3_PL.Views
                     trangThai = 0;
                 Guid id = Guid.Parse(Id);
                 var ketQua = _lstkhachHangService.Update(id, txtMa.Text, txtTen.Text, txtSDT.Text,
-                    txtDiaChi.Text, txtEmail.Text, gioiTinh, dtNamSinh.Value, trangThai);
+                    txtDiaChi.Text, txtEmail.Text, gioiTinh, dtNamSinh.Value,txtPassword.Text, trangThai);
                 if (ketQua)
                 {
                     MessageBox.Show("Sửa thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -250,6 +252,11 @@ namespace _3_PL.Views
                 else
                     MessageBox.Show("Xóa không thành công !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

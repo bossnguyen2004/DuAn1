@@ -11,7 +11,8 @@ namespace _1_DAL.IRepositories
     {
         List<Anh> GetAll();
         bool Them(Anh image);
-        bool Xoa(Guid Id);
+        bool Xoa(Anh image);
         bool Sua(Anh image);
+        bool timKiem(Anh image);
     }
 }

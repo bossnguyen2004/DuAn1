@@ -89,7 +89,7 @@
             btnDangKy.BackColor = Color.White;
             btnDangKy.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnDangKy.ForeColor = Color.Red;
-            btnDangKy.Location = new Point(58, 188);
+            btnDangKy.Location = new Point(182, 188);
             btnDangKy.Name = "btnDangKy";
             btnDangKy.Size = new Size(98, 40);
             btnDangKy.TabIndex = 4;
@@ -102,7 +102,7 @@
             btnDangNhap.BackColor = Color.White;
             btnDangNhap.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnDangNhap.ForeColor = Color.Red;
-            btnDangNhap.Location = new Point(179, 188);
+            btnDangNhap.Location = new Point(58, 188);
             btnDangNhap.Name = "btnDangNhap";
             btnDangNhap.Size = new Size(101, 40);
             btnDangNhap.TabIndex = 5;
@@ -188,7 +188,8 @@
             ClientSize = new Size(629, 315);
             Controls.Add(splitContainer1);
             Name = "FrmLogin";
-            Text = "FrmLogin";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Đăng nhập";
             Load += FrmLogin_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
