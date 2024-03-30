@@ -1,4 +1,6 @@
-﻿using _2_BUS.IServices;
+﻿using _1_DAL.Models;
+using _1_DAL.Repository;
+using _2_BUS.IServices;
 using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,24 +12,50 @@ namespace _2_BUS.Services
 {
     public class LoaiGiayServices : ILoaiGiayServices
     {
-        public List<LoaiGiayViewModels> GetAll()
+        private LoaiGiayRepositoy _repository;
+
+        public LoaiGiayServices()
         {
-            throw new NotImplementedException();
+            _repository = new LoaiGiayRepositoy();
         }
 
-        public bool Sua(LoaiGiayViewModels loaiGiay)
+        public List<LoaiGiay> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
-        public bool Them(LoaiGiayViewModels loaiGiay)
+        public bool Sua(Guid Id, string ma, string ten, int trangThai)
         {
-            throw new NotImplementedException();
+            var loaiGiay = new LoaiGiay
+            {
+                Id = Id,
+                Ma = ma,
+                Ten = ten,
+                TrangThai = trangThai,
+            };
+            return _repository.Sua(loaiGiay);
+        }
+
+        public bool Them(string ma, string ten, int trangThai)
+        {
+            var loaiGiay = new LoaiGiay
+            {
+                Id = Guid.NewGuid(),
+                Ma = ma,
+                Ten = ten,
+                TrangThai = trangThai
+            };
+            return _repository.Them(loaiGiay);
         }
 
         public bool Xoa(Guid Id)
         {
-            throw new NotImplementedException();
+            var loaiGiay = new LoaiGiay
+            {
+                Id = Id,
+            };
+            return _repository.Xoa(loaiGiay);
         }
+
     }
 }

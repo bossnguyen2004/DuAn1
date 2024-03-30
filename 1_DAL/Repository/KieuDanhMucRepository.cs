@@ -1,4 +1,5 @@
-﻿using _1_DAL.IRepositories;
+﻿using _1_DAL.DBContext;
+using _1_DAL.IRepositories;
 using _1_DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -10,24 +11,75 @@ namespace _1_DAL.Repository
 {
     public class KieuDanhMucRepository : IKieuDanhMucRepositories
     {
+        public KieuDanhMucRepository()
+        {
+            _dbContext = new ApplicationDBContext();
+        }
+        private ApplicationDBContext _dbContext;
+
         public List<KieuDanhMuc> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.KieuDanhMucs.ToList();
         }
 
         public bool Sua(KieuDanhMuc kieuDanhMuc)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var KDM = _dbContext.KieuDanhMucs.Find(kieuDanhMuc.Id);
+                if (KDM != null)
+                {
+                    KDM.TheLoaiGioiTinh = kieuDanhMuc.TheLoaiGioiTinh;
+                    KDM.TrangThai = kieuDanhMuc.TrangThai;
+                    _dbContext.KieuDanhMucs.Update(KDM);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool Them(KieuDanhMuc kieuDanhMuc)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.KieuDanhMucs.Add(kieuDanhMuc);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
-        public bool Xoa(Guid Id)
+        public bool Xoa(KieuDanhMuc kieuDanhMuc)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var KDM = _dbContext.KieuDanhMucs.Find(kieuDanhMuc.Id);
+                if (KDM != null)
+                {
+                    _dbContext.KieuDanhMucs.Remove(KDM);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

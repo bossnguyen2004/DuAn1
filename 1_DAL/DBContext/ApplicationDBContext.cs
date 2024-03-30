@@ -29,7 +29,6 @@ namespace _1_DAL.DBContext
         public virtual DbSet<NhaSanXuat> NhaSanXuats { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<SizeGiay> SizeGiays { get; set; }
-        public virtual DbSet<DiaChi> DiaChis { get; set; }
         public virtual DbSet<KieuDanhMuc> KieuDanhMucs { get; set; }
         public virtual DbSet<DanhMuc> DanhMucs { get; set; }
         public virtual DbSet<ChatLieu> ChatLieus { get; set; }
@@ -73,7 +72,7 @@ namespace _1_DAL.DBContext
                 entity.HasOne(d => d.IdDanhMucNavigation)
                       .WithMany(g => g.KieuDanhMucs)
                       .OnDelete(DeleteBehavior.ClientSetNull);
-                entity.HasOne(d => d.IdHangHoaNavigation)
+                entity.HasOne(d => d.IdSanPhamNavigation)
                       .WithMany(g => g.KieuDanhMucs)
                       .OnDelete(DeleteBehavior.ClientSetNull);
 
@@ -208,7 +207,7 @@ namespace _1_DAL.DBContext
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
                 entity.Property(e => e.Ma).IsUnicode(false);
                 entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
-                entity.Property(e => e.IdDanhMucKhac).IsRequired(false);
+             
 
             });
             modelBuilder.Entity<SizeGiay>(entity =>
@@ -235,19 +234,7 @@ namespace _1_DAL.DBContext
 
 
             });
-            modelBuilder.Entity<DiaChi>(entity =>
-            {
-                entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
-                entity.Property(e => e.Ma).IsUnicode(false);
-                entity.Property(e => e.TrangThai).HasDefaultValueSql("((0))");
-
-                entity.HasOne(d => d.IdKhachHangNavigation)
-                      .WithMany(g => g.DiaChis)
-                      .OnDelete(DeleteBehavior.ClientSetNull);
-
-
-            });
-
+           
             modelBuilder.Entity<NhanVien>(entity =>
             {
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");

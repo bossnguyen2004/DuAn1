@@ -1,4 +1,5 @@
-﻿using _1_DAL.IRepositories;
+﻿using _1_DAL.DBContext;
+using _1_DAL.IRepositories;
 using _1_DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -10,24 +11,76 @@ namespace _1_DAL.Repository
 {
     public class LoaiGiayRepositoy : ILoaiGiayRepositories
     {
+        public LoaiGiayRepositoy()
+        {
+            _dbContext = new ApplicationDBContext();
+        }
+        private ApplicationDBContext _dbContext;
+
         public List<LoaiGiay> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.LoaiGiays.ToList();
         }
 
         public bool Sua(LoaiGiay loaiGiay)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var CL = _dbContext.LoaiGiays.Find(loaiGiay.Id);
+                if (CL != null)
+                {
+                    CL.Ma = loaiGiay.Ma;
+                    CL.Ten = loaiGiay.Ten;
+                    CL.TrangThai = loaiGiay.TrangThai;
+                    _dbContext.LoaiGiays.Update(CL);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool Them(LoaiGiay loaiGiay)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.LoaiGiays.Add(loaiGiay);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
-        public bool Xoa(Guid Id)
+        public bool Xoa(LoaiGiay loaiGiay)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var CL = _dbContext.LoaiGiays.Find(loaiGiay.Id);
+                if (CL != null)
+                {
+                    _dbContext.LoaiGiays.Remove(CL);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

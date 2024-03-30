@@ -103,7 +103,7 @@ namespace _3_PL.Views
 
         }
 
-
+        // chức vụ
 
         private void btnQLNhanVien_Click_1(object sender, EventArgs e)
         {
@@ -120,6 +120,19 @@ namespace _3_PL.Views
             }
         }
 
+        private void btnChucVu_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmChucVu(), sender);
+        }
+
+        private void btnNhanVien_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmNhanVien(), sender);
+        }
+
+
+
+        // Sản phẩm
         private void btnSanPham_Click_1(object sender, EventArgs e)
         {
             if (isSubMenuOpen)
@@ -132,16 +145,7 @@ namespace _3_PL.Views
                 ShowSubMenu(pnlSanPham);
                 isSubMenuOpen = true;
             }
-        }
 
-        private void btnChucVu_Click_1(object sender, EventArgs e)
-        {
-            OpenChildForm(new FrmChucVu(), sender);
-        }
-
-        private void btnNhanVien_Click_1(object sender, EventArgs e)
-        {
-            OpenChildForm(new FrmNhanVien(), sender);
         }
 
         private void btnChatLieu_Click_1(object sender, EventArgs e)
@@ -154,13 +158,13 @@ namespace _3_PL.Views
             OpenChildForm(new FrmNhaSanXuat(), sender);
         }
 
+        private void btnSP_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmSanPham(), sender);
+        }
 
-
-
-
-
-
-
+        // Danh Mục
+      
 
 
 

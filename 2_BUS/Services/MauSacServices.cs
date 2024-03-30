@@ -1,4 +1,6 @@
-﻿using _2_BUS.IServices;
+﻿using _1_DAL.Models;
+using _1_DAL.Repository;
+using _2_BUS.IServices;
 using _2_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,24 +12,49 @@ namespace _2_BUS.Services
 {
     public class MauSacServices : IMauSacServices
     {
-        public List<MauSacViewModels> GetAll()
+        private MauSacRepository _repository;
+
+        public MauSacServices()
         {
-            throw new NotImplementedException();
+            _repository = new MauSacRepository();
         }
 
-        public bool Sua(MauSacViewModels mauSac)
+        public List<MauSac> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
-        public bool Them(MauSacViewModels mauSac)
+        public bool Sua(Guid Id, string ma, string ten, int trangThai)
         {
-            throw new NotImplementedException();
+            var mauSac = new MauSac
+            {
+                Id = Id,
+                Ma = ma,
+                Ten = ten,
+                TrangThai = trangThai,
+            };
+            return _repository.Sua(mauSac);
+        }
+
+        public bool Them(string ma, string ten, int trangThai)
+        {
+            var mauSac = new MauSac
+            {
+                Id = Guid.NewGuid(),
+                Ma = ma,
+                Ten = ten,
+                TrangThai = trangThai
+            };
+            return _repository.Them(mauSac);
         }
 
         public bool Xoa(Guid Id)
         {
-            throw new NotImplementedException();
+            var mauSac = new MauSac
+            {
+                Id = Id,
+            };
+            return _repository.Xoa(mauSac);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace _1_DAL.Models
         public string? DiaChi { get; set; }
         public int TrangThai { get; set; }
         public virtual ICollection<HoaDon> HoaDons { get; set; }
-        public virtual ICollection<DiaChi> DiaChis { get; set; }
+
     }
 }
 

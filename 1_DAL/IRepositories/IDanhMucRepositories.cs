@@ -11,7 +11,7 @@ namespace _1_DAL.IRepositories
     {
         List<DanhMuc> GetAll();
         bool Them(DanhMuc danhmuc);
-        bool Xoa(Guid Id);
+        bool Xoa(DanhMuc danhmuc);
         bool Sua(DanhMuc danhmuc);
     }
 }

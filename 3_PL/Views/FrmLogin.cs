@@ -46,21 +46,20 @@ namespace _3_PL.Views
                     {
                         var nv = (NhanVien)user;
 
-                        // set thong tin cua nhan vien vao userViewModel
                         userViewModel.IsCutomer = false;
                         userViewModel.Ho = nv.Ho;
                         userViewModel.Ten = nv.Ten;
                     }
                     catch (Exception)
                     {
-                        // set thong tin cua khach hang vao userViewModel
+                     
                         var kh = (KhachHang)user;
                         userViewModel.IsCutomer = true;
                         userViewModel.Ten = kh.Ten;
                     }
                     Helpers.AccountHelper.Instance.SetUserLogin(userViewModel);
                     this.Hide();
-                    var formNhanVien = new FrmMain();
+                    var formNhanVien = new FrmHome();
                     formNhanVien.Show();
                 }
                 else

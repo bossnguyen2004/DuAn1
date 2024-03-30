@@ -10,10 +10,9 @@ namespace _2_BUS.IServices
     public interface IKieuDanhMucServices
     {
         List<KieuDanhMucViewModels> GetAll();
-        bool Them(KieuDanhMucViewModels kieuDanhMuc);
-        bool Sua(KieuDanhMucViewModels kieuDanhMuc);
+        bool Them(int theLoaiGT, int trangThai, string IdDanhMuc, string IdSanPham);
+        bool Sua(Guid Id, int theLoaiGT, int trangThai, string IdDanhMuc, string IdSanPham);
         bool Xoa(Guid Id);
-        public List<KieuDanhMucViewModels> GetChucVu();
-        List<KieuDanhMucViewModels> TimKiem(string TenDM,string TenSP);
+        List<KieuDanhMucViewModels> TimKiem(string Ma);
     }
 }

@@ -28,6 +28,6 @@ namespace _1_DAL.Models
         public virtual DanhMuc IdDanhMucNavigation { get; set; }
         [ForeignKey(nameof(IdSanPham))]
         [InverseProperty(nameof(SanPham.KieuDanhMucs))]
-        public virtual SanPham IdHangHoaNavigation { get; set; }
+        public virtual SanPham IdSanPhamNavigation { get; set; }
     }
 }
