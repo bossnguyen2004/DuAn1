@@ -35,7 +35,7 @@
             btnQlDanhMuc = new Button();
             btnThongke = new Button();
             btnCaidat = new Button();
-            btnKhachang = new Button();
+            btnQLKhachang = new Button();
             bntQLChucVu = new Button();
             btnSanPham = new Button();
             btnQLHoaDon = new Button();
@@ -65,6 +65,11 @@
             rjDropdownMenu3 = new Helpers.RJDropdownMenu(components);
             danhMụcToolStripMenuItem = new ToolStripMenuItem();
             kiểuDanhMụcToolStripMenuItem = new ToolStripMenuItem();
+            rjDropdownMenu4 = new Helpers.RJDropdownMenu(components);
+            kháchHàngToolStripMenuItem = new ToolStripMenuItem();
+            rjDropdownMenu5 = new Helpers.RJDropdownMenu(components);
+            đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
+            đổiMậtKhẩuToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             pnlMenu.SuspendLayout();
             rjDropdownMenu1.SuspendLayout();
@@ -72,6 +77,8 @@
             panel5.SuspendLayout();
             rjDropdownMenu2.SuspendLayout();
             rjDropdownMenu3.SuspendLayout();
+            rjDropdownMenu4.SuspendLayout();
+            rjDropdownMenu5.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -100,7 +107,7 @@
             pnlMenu.Controls.Add(btnQlDanhMuc);
             pnlMenu.Controls.Add(btnThongke);
             pnlMenu.Controls.Add(btnCaidat);
-            pnlMenu.Controls.Add(btnKhachang);
+            pnlMenu.Controls.Add(btnQLKhachang);
             pnlMenu.Controls.Add(bntQLChucVu);
             pnlMenu.Controls.Add(btnSanPham);
             pnlMenu.Controls.Add(btnQLHoaDon);
@@ -137,15 +144,17 @@
             btnCaidat.TabIndex = 6;
             btnCaidat.Text = "Cài Đặt";
             btnCaidat.UseVisualStyleBackColor = true;
+            btnCaidat.Click += btnCaidat_Click;
             // 
-            // btnKhachang
+            // btnQLKhachang
             // 
-            btnKhachang.Location = new Point(5, 364);
-            btnKhachang.Name = "btnKhachang";
-            btnKhachang.Size = new Size(143, 44);
-            btnKhachang.TabIndex = 5;
-            btnKhachang.Text = "Khách Hàng";
-            btnKhachang.UseVisualStyleBackColor = true;
+            btnQLKhachang.Location = new Point(5, 364);
+            btnQLKhachang.Name = "btnQLKhachang";
+            btnQLKhachang.Size = new Size(143, 44);
+            btnQLKhachang.TabIndex = 5;
+            btnQLKhachang.Text = "QL  Khách Hàng";
+            btnQLKhachang.UseVisualStyleBackColor = true;
+            btnQLKhachang.Click += btnQLKhachang_Click;
             // 
             // bntQLChucVu
             // 
@@ -379,21 +388,59 @@
             rjDropdownMenu3.MenuItemTextColor = Color.DarkGray;
             rjDropdownMenu3.Name = "rjDropdownMenu3";
             rjDropdownMenu3.PrimaryColor = Color.MediumSlateBlue;
-            rjDropdownMenu3.Size = new Size(181, 70);
+            rjDropdownMenu3.Size = new Size(156, 48);
             // 
             // danhMụcToolStripMenuItem
             // 
             danhMụcToolStripMenuItem.Name = "danhMụcToolStripMenuItem";
-            danhMụcToolStripMenuItem.Size = new Size(180, 22);
+            danhMụcToolStripMenuItem.Size = new Size(155, 22);
             danhMụcToolStripMenuItem.Text = "Danh Mục";
             danhMụcToolStripMenuItem.Click += danhMụcToolStripMenuItem_Click;
             // 
             // kiểuDanhMụcToolStripMenuItem
             // 
             kiểuDanhMụcToolStripMenuItem.Name = "kiểuDanhMụcToolStripMenuItem";
-            kiểuDanhMụcToolStripMenuItem.Size = new Size(180, 22);
+            kiểuDanhMụcToolStripMenuItem.Size = new Size(155, 22);
             kiểuDanhMụcToolStripMenuItem.Text = "Kiểu Danh Mục";
             kiểuDanhMụcToolStripMenuItem.Click += kiểuDanhMụcToolStripMenuItem_Click;
+            // 
+            // rjDropdownMenu4
+            // 
+            rjDropdownMenu4.IsMainMenu = false;
+            rjDropdownMenu4.Items.AddRange(new ToolStripItem[] { kháchHàngToolStripMenuItem });
+            rjDropdownMenu4.MenuItemTextColor = Color.DarkGray;
+            rjDropdownMenu4.Name = "rjDropdownMenu4";
+            rjDropdownMenu4.PrimaryColor = Color.MediumSlateBlue;
+            rjDropdownMenu4.Size = new Size(140, 26);
+            // 
+            // kháchHàngToolStripMenuItem
+            // 
+            kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
+            kháchHàngToolStripMenuItem.Size = new Size(139, 22);
+            kháchHàngToolStripMenuItem.Text = "Khách Hàng";
+            kháchHàngToolStripMenuItem.Click += kháchHàngToolStripMenuItem_Click;
+            // 
+            // rjDropdownMenu5
+            // 
+            rjDropdownMenu5.IsMainMenu = false;
+            rjDropdownMenu5.Items.AddRange(new ToolStripItem[] { đăngXuấtToolStripMenuItem, đổiMậtKhẩuToolStripMenuItem });
+            rjDropdownMenu5.MenuItemTextColor = Color.DarkGray;
+            rjDropdownMenu5.Name = "rjDropdownMenu5";
+            rjDropdownMenu5.PrimaryColor = Color.MediumSlateBlue;
+            rjDropdownMenu5.Size = new Size(146, 48);
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            đăngXuấtToolStripMenuItem.Size = new Size(145, 22);
+            đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
+            đăngXuấtToolStripMenuItem.Click += đăngXuấtToolStripMenuItem_Click;
+            // 
+            // đổiMậtKhẩuToolStripMenuItem
+            // 
+            đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
+            đổiMậtKhẩuToolStripMenuItem.Size = new Size(145, 22);
+            đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             // 
             // FrmHome
             // 
@@ -419,6 +466,8 @@
             panel5.PerformLayout();
             rjDropdownMenu2.ResumeLayout(false);
             rjDropdownMenu3.ResumeLayout(false);
+            rjDropdownMenu4.ResumeLayout(false);
+            rjDropdownMenu5.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -429,7 +478,7 @@
         private Panel pnlMenu;
         private Button btnQLHoaDon;
         private Button btnBanHang;
-        private Button btnKhachang;
+        private Button btnQLKhachang;
         private Button bntQLChucVu;
         private Button btnSanPham;
         private Button btnCaidat;
@@ -460,5 +509,10 @@
         private Helpers.RJDropdownMenu rjDropdownMenu3;
         private ToolStripMenuItem danhMụcToolStripMenuItem;
         private ToolStripMenuItem kiểuDanhMụcToolStripMenuItem;
+        private Helpers.RJDropdownMenu rjDropdownMenu4;
+        private ToolStripMenuItem kháchHàngToolStripMenuItem;
+        private Helpers.RJDropdownMenu rjDropdownMenu5;
+        private ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
     }
 }

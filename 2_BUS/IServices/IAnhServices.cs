@@ -11,9 +11,9 @@ namespace _2_BUS.IServices
     public interface IAnhServices
     {
         bool timKiem(string ten);
-        bool Them(string ma, string ten, int trangThai);
+        bool Them(string ma, string ten,string duongdan, int trangThai);
         bool Xoa(Guid Id);
-        bool Sua(Guid Id, string ma, string ten, int trangThai);
+        bool Sua(Guid Id, string ma, string ten, string duongdan, int trangThai);
         public Guid Id(AnhViewModels img);
         List<Anh> GetAll();
     }

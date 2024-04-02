@@ -27,6 +27,7 @@ namespace _3_PL.Views
             DanhMucViewModels = new DanhMucViewModels();
 
             initGridView();
+            LoadData();
         }
         private void initGridView()
         {

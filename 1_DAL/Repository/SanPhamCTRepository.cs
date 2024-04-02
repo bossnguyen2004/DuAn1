@@ -1,4 +1,5 @@
-﻿using _1_DAL.IRepositories;
+﻿using _1_DAL.DBContext;
+using _1_DAL.IRepositories;
 using _1_DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,52 @@ namespace _1_DAL.Repository
 {
     public class SanPhamCTRepository : ISanPhamCTRepositories
     {
+        private ApplicationDBContext _dbContext;
+
+        public SanPhamCTRepository()
+        {
+            _dbContext = new ApplicationDBContext();
+        }
         public List<SanPhamChiTiet> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.SanPhamChiTiets.ToList();
         }
 
         public bool Sua(SanPhamChiTiet sanPhamCT)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var SP = _dbContext.SanPhamChiTiets.Find(sanPhamCT.Id);
+                if (SP != null)
+                {
+                    _dbContext.SanPhamChiTiets.Update(SP);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool Them(SanPhamChiTiet sanPhamCT)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.SanPhamChiTiets.Add(sanPhamCT);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public List<SanPhamChiTiet> TimKiem(string Ma)
@@ -30,9 +64,26 @@ namespace _1_DAL.Repository
             throw new NotImplementedException();
         }
 
-        public bool Xoa(Guid Id)
+        public bool Xoa(SanPhamChiTiet sanPhamCT)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var SP = _dbContext.SanPhamChiTiets.Find(sanPhamCT.Id);
+                if (SP != null)
+                {
+                    _dbContext.SanPhamChiTiets.Update(SP);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

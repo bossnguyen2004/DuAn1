@@ -28,25 +28,27 @@ namespace _2_BUS.Services
             throw new NotImplementedException();
         }
 
-        public bool Sua(Guid Id, string ma, string ten, int trangThai)
+        public bool Sua(Guid Id, string ma, string ten, string duongdan, int trangThai)
         {
             var anh = new Anh
             {
                ID = Id,
                MaAnh = ma,
                Ten = ten,
-               TrangThai = trangThai,
+                DuongDan = duongdan,
+                TrangThai = trangThai,
             };
             return _repository.Sua(anh);
         }
 
-        public bool Them(string ma, string ten, int trangThai)
+        public bool Them(string ma, string ten, string duongdan, int trangThai)
         {
             var anh = new Anh
             {
                 ID = Guid.NewGuid(),
                 MaAnh = ma,
                 Ten = ten,
+                DuongDan = duongdan,
                 TrangThai = trangThai,
             };
             return _repository.Them(anh);

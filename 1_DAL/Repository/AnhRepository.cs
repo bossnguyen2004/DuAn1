@@ -31,6 +31,8 @@ namespace _1_DAL.Repository
                 {
                     anh.MaAnh = image.MaAnh;
                     anh.Ten = image.Ten;
+                    anh.DuongDan = image.DuongDan;
+                    anh.TrangThai= image.TrangThai;
                     _dbContext.Anhs.Update(anh);
                     _dbContext.SaveChanges();
                     return true;
