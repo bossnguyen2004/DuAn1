@@ -232,12 +232,12 @@ namespace _3_PL.Views
 
         private void pckAnh_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void cbduongDan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedImagePath = cbduongDan.Text.Trim(); 
+            string selectedImagePath = cbduongDan.Text.Trim();
             if (!string.IsNullOrEmpty(selectedImagePath))
             {
                 try
@@ -269,6 +269,11 @@ namespace _3_PL.Views
 
             string[] allowedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
             return allowedExtensions.Contains(extension.ToLower());
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -63,20 +63,20 @@ namespace _3_PL.Views
         {
 
 
-            lblUserName.Text = userViewModel.Ten;
+            //lblUserName.Text = userViewModel.Ten;
 
-            if (isCustomerLoggedIn)
-            {
-                bntQLChucVu.Enabled = false;
-                btnSanPham.Enabled = false;
-            }
+            //if (isCustomerLoggedIn)
+            //{
+            //    bntQLChucVu.Enabled = false;
+            //    btnSanPham.Enabled = false;
+            //}
 
-            else
-            {
-                // Nếu không phải là khách hàng, hiển thị các nút quản lý chức vụ và quản lý sản phẩm
-                bntQLChucVu.Visible = true;
-                btnSanPham.Visible = true;
-            }
+            //else
+            //{
+            //    // Nếu không phải là khách hàng, hiển thị các nút quản lý chức vụ và quản lý sản phẩm
+            //    bntQLChucVu.Visible = true;
+            //    btnSanPham.Visible = true;
+            //}
 
 
         }
@@ -101,7 +101,6 @@ namespace _3_PL.Views
             rjDropdownMenu1.IsMainMenu = true;
             rjDropdownMenu2.IsMainMenu = true;
             rjDropdownMenu3.IsMainMenu = true;
-            rjDropdownMenu4.IsMainMenu = true;
             rjDropdownMenu5.IsMainMenu = true;
         }
 
@@ -123,7 +122,10 @@ namespace _3_PL.Views
         {
             OpenChildForm(new FrmChucVu(), sender);
         }
-
+        private void giaoCaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmGiaoCa(), sender);
+        }
 
 
         // Sản Phảm
@@ -203,26 +205,23 @@ namespace _3_PL.Views
 
         private void btnQLKhachang_Click(object sender, EventArgs e)
         {
-            rjDropdownMenu4.Show(btnQLKhachang, btnQLKhachang.Width, 0);
-        }
-
-        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             OpenChildForm(new FrmKhachHang(), sender);
         }
 
 
 
+
+
         /// Cài đặt
-       
+
         private void btnCaidat_Click(object sender, EventArgs e)
         {
             rjDropdownMenu5.Show(btnCaidat, btnCaidat.Width, 0);
         }
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            DialogResult dangxuat = MessageBox.Show("Bạn có muốn đăng xuất không","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+            DialogResult dangxuat = MessageBox.Show("Bạn có muốn đăng xuất không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dangxuat == DialogResult.Yes)
             {
                 FrmLogin frmLogin = new FrmLogin();
@@ -232,6 +231,14 @@ namespace _3_PL.Views
             }
         }
 
-       
+        private void btnThongke_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmThongKe(), sender);
+        }
+
+        private void btnBanHang_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FrmBanHang(), sender);
+        }
     }
 }

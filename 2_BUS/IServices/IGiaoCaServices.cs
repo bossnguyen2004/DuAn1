@@ -11,9 +11,9 @@ namespace _2_BUS.IServices
     {
         List<GiaoCaViewModels> GetAll();
         bool Them(GiaoCaViewModels giaoCa);
-        bool Sua(GiaoCaViewModels giaoCa);
+        bool Sua(GiaoCaViewModels giaoCaViewModels);
         bool Xoa(Guid Id);
-        Guid GetId(GiaoCaViewModels Gc);
+        Guid GetId(GiaoCaViewModels giaoCa);
         List<GiaoCaViewModels> TimKiem(string Ma);
 
     }

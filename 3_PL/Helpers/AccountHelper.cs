@@ -11,7 +11,7 @@ namespace _3_PL.Helpers
     {
         private static AccountHelper _instance;
         private static UserViewModel _userLoged;
-
+        //private static NhanVienViewModels _userLogeds;
         public AccountHelper()
         {
                 
@@ -40,7 +40,10 @@ namespace _3_PL.Helpers
             _userLoged = user;
         }
 
-
+        //public UserViewModel GetUserLogeds()
+        //{
+        //    return _userLoged;
+        //}
 
     }
 }

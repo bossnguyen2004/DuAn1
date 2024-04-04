@@ -9,7 +9,6 @@ namespace _2_BUS.ViewModels
     public class KhachHangViewModels
     {
         public Guid Id { get; set; }
-        public Guid? IdDiaChi { get; set; }
         public string Ma { get; set; }
         public string Ten { get; set; }
         public int GioiTinh { get; set; }

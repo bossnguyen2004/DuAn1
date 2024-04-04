@@ -43,6 +43,7 @@
             rjDropdownMenu1 = new Helpers.RJDropdownMenu(components);
             nhânViênToolStripMenuItem = new ToolStripMenuItem();
             chứcVụToolStripMenuItem = new ToolStripMenuItem();
+            giaoCaToolStripMenuItem = new ToolStripMenuItem();
             pnlThan = new Panel();
             panel3 = new Panel();
             lblUserName = new Label();
@@ -65,8 +66,6 @@
             rjDropdownMenu3 = new Helpers.RJDropdownMenu(components);
             danhMụcToolStripMenuItem = new ToolStripMenuItem();
             kiểuDanhMụcToolStripMenuItem = new ToolStripMenuItem();
-            rjDropdownMenu4 = new Helpers.RJDropdownMenu(components);
-            kháchHàngToolStripMenuItem = new ToolStripMenuItem();
             rjDropdownMenu5 = new Helpers.RJDropdownMenu(components);
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
             đổiMậtKhẩuToolStripMenuItem = new ToolStripMenuItem();
@@ -77,7 +76,6 @@
             panel5.SuspendLayout();
             rjDropdownMenu2.SuspendLayout();
             rjDropdownMenu3.SuspendLayout();
-            rjDropdownMenu4.SuspendLayout();
             rjDropdownMenu5.SuspendLayout();
             SuspendLayout();
             // 
@@ -114,14 +112,14 @@
             pnlMenu.Controls.Add(btnBanHang);
             pnlMenu.Location = new Point(10, 11);
             pnlMenu.Name = "pnlMenu";
-            pnlMenu.Size = new Size(148, 613);
+            pnlMenu.Size = new Size(148, 697);
             pnlMenu.TabIndex = 4;
             // 
             // btnQlDanhMuc
             // 
-            btnQlDanhMuc.Location = new Point(5, 314);
+            btnQlDanhMuc.Location = new Point(5, 424);
             btnQlDanhMuc.Name = "btnQlDanhMuc";
-            btnQlDanhMuc.Size = new Size(143, 44);
+            btnQlDanhMuc.Size = new Size(140, 44);
             btnQlDanhMuc.TabIndex = 8;
             btnQlDanhMuc.Text = "QL Danh Mục";
             btnQlDanhMuc.UseVisualStyleBackColor = true;
@@ -129,18 +127,19 @@
             // 
             // btnThongke
             // 
-            btnThongke.Location = new Point(5, 64);
+            btnThongke.Location = new Point(5, 79);
             btnThongke.Name = "btnThongke";
-            btnThongke.Size = new Size(143, 44);
+            btnThongke.Size = new Size(140, 44);
             btnThongke.TabIndex = 7;
             btnThongke.Text = "Thông Kê";
             btnThongke.UseVisualStyleBackColor = true;
+            btnThongke.Click += btnThongke_Click;
             // 
             // btnCaidat
             // 
-            btnCaidat.Location = new Point(4, 493);
+            btnCaidat.Location = new Point(5, 566);
             btnCaidat.Name = "btnCaidat";
-            btnCaidat.Size = new Size(142, 44);
+            btnCaidat.Size = new Size(140, 44);
             btnCaidat.TabIndex = 6;
             btnCaidat.Text = "Cài Đặt";
             btnCaidat.UseVisualStyleBackColor = true;
@@ -148,9 +147,9 @@
             // 
             // btnQLKhachang
             // 
-            btnQLKhachang.Location = new Point(5, 364);
+            btnQLKhachang.Location = new Point(5, 497);
             btnQLKhachang.Name = "btnQLKhachang";
-            btnQLKhachang.Size = new Size(143, 44);
+            btnQLKhachang.Size = new Size(140, 44);
             btnQLKhachang.TabIndex = 5;
             btnQLKhachang.Text = "QL  Khách Hàng";
             btnQLKhachang.UseVisualStyleBackColor = true;
@@ -158,9 +157,9 @@
             // 
             // bntQLChucVu
             // 
-            bntQLChucVu.Location = new Point(4, 264);
+            bntQLChucVu.Location = new Point(5, 348);
             bntQLChucVu.Name = "bntQLChucVu";
-            bntQLChucVu.Size = new Size(143, 44);
+            bntQLChucVu.Size = new Size(140, 44);
             bntQLChucVu.TabIndex = 4;
             bntQLChucVu.Text = "QL Chức Vụ";
             bntQLChucVu.UseVisualStyleBackColor = true;
@@ -168,7 +167,7 @@
             // 
             // btnSanPham
             // 
-            btnSanPham.Location = new Point(6, 214);
+            btnSanPham.Location = new Point(3, 277);
             btnSanPham.Name = "btnSanPham";
             btnSanPham.Size = new Size(142, 44);
             btnSanPham.TabIndex = 3;
@@ -178,7 +177,7 @@
             // 
             // btnQLHoaDon
             // 
-            btnQLHoaDon.Location = new Point(6, 164);
+            btnQLHoaDon.Location = new Point(3, 207);
             btnQLHoaDon.Name = "btnQLHoaDon";
             btnQLHoaDon.Size = new Size(142, 44);
             btnQLHoaDon.TabIndex = 2;
@@ -187,21 +186,22 @@
             // 
             // btnBanHang
             // 
-            btnBanHang.Location = new Point(5, 114);
+            btnBanHang.Location = new Point(3, 140);
             btnBanHang.Name = "btnBanHang";
             btnBanHang.Size = new Size(143, 44);
             btnBanHang.TabIndex = 1;
             btnBanHang.Text = "Bán Hàng";
             btnBanHang.UseVisualStyleBackColor = true;
+            btnBanHang.Click += btnBanHang_Click;
             // 
             // rjDropdownMenu1
             // 
             rjDropdownMenu1.IsMainMenu = false;
-            rjDropdownMenu1.Items.AddRange(new ToolStripItem[] { nhânViênToolStripMenuItem, chứcVụToolStripMenuItem });
+            rjDropdownMenu1.Items.AddRange(new ToolStripItem[] { nhânViênToolStripMenuItem, chứcVụToolStripMenuItem, giaoCaToolStripMenuItem });
             rjDropdownMenu1.MenuItemTextColor = Color.DarkGray;
             rjDropdownMenu1.Name = "rjDropdownMenu1";
             rjDropdownMenu1.PrimaryColor = Color.MediumSlateBlue;
-            rjDropdownMenu1.Size = new Size(130, 48);
+            rjDropdownMenu1.Size = new Size(130, 70);
             // 
             // nhânViênToolStripMenuItem
             // 
@@ -217,13 +217,20 @@
             chứcVụToolStripMenuItem.Text = "Chức Vụ";
             chứcVụToolStripMenuItem.Click += chứcVụToolStripMenuItem_Click;
             // 
+            // giaoCaToolStripMenuItem
+            // 
+            giaoCaToolStripMenuItem.Name = "giaoCaToolStripMenuItem";
+            giaoCaToolStripMenuItem.Size = new Size(129, 22);
+            giaoCaToolStripMenuItem.Text = "Giao Ca";
+            giaoCaToolStripMenuItem.Click += giaoCaToolStripMenuItem_Click;
+            // 
             // pnlThan
             // 
             pnlThan.BackColor = SystemColors.ButtonHighlight;
             pnlThan.BorderStyle = BorderStyle.FixedSingle;
             pnlThan.Location = new Point(164, 75);
             pnlThan.Name = "pnlThan";
-            pnlThan.Size = new Size(892, 504);
+            pnlThan.Size = new Size(1085, 579);
             pnlThan.TabIndex = 5;
             // 
             // panel3
@@ -236,7 +243,7 @@
             panel3.Controls.Add(label2);
             panel3.Location = new Point(167, 11);
             panel3.Name = "panel3";
-            panel3.Size = new Size(889, 58);
+            panel3.Size = new Size(1082, 58);
             panel3.TabIndex = 6;
             // 
             // lblUserName
@@ -253,7 +260,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Snap ITC", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(284, 10);
+            label5.Location = new Point(426, 12);
             label5.Name = "label5";
             label5.Size = new Size(291, 31);
             label5.TabIndex = 4;
@@ -272,7 +279,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(751, 18);
+            textBox2.Location = new Point(899, 15);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(121, 23);
             textBox2.TabIndex = 3;
@@ -291,9 +298,9 @@
             // 
             panel5.BackColor = Color.FromArgb(221, 221, 221);
             panel5.Controls.Add(label3);
-            panel5.Location = new Point(164, 585);
+            panel5.Location = new Point(164, 660);
             panel5.Name = "panel5";
-            panel5.Size = new Size(892, 39);
+            panel5.Size = new Size(1085, 39);
             panel5.TabIndex = 7;
             // 
             // label3
@@ -301,7 +308,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(306, 9);
+            label3.Location = new Point(443, 9);
             label3.Name = "label3";
             label3.Size = new Size(397, 21);
             label3.TabIndex = 0;
@@ -404,22 +411,6 @@
             kiểuDanhMụcToolStripMenuItem.Text = "Kiểu Danh Mục";
             kiểuDanhMụcToolStripMenuItem.Click += kiểuDanhMụcToolStripMenuItem_Click;
             // 
-            // rjDropdownMenu4
-            // 
-            rjDropdownMenu4.IsMainMenu = false;
-            rjDropdownMenu4.Items.AddRange(new ToolStripItem[] { kháchHàngToolStripMenuItem });
-            rjDropdownMenu4.MenuItemTextColor = Color.DarkGray;
-            rjDropdownMenu4.Name = "rjDropdownMenu4";
-            rjDropdownMenu4.PrimaryColor = Color.MediumSlateBlue;
-            rjDropdownMenu4.Size = new Size(140, 26);
-            // 
-            // kháchHàngToolStripMenuItem
-            // 
-            kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
-            kháchHàngToolStripMenuItem.Size = new Size(139, 22);
-            kháchHàngToolStripMenuItem.Text = "Khách Hàng";
-            kháchHàngToolStripMenuItem.Click += kháchHàngToolStripMenuItem_Click;
-            // 
             // rjDropdownMenu5
             // 
             rjDropdownMenu5.IsMainMenu = false;
@@ -446,7 +437,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1068, 626);
+            ClientSize = new Size(1352, 749);
             Controls.Add(panel5);
             Controls.Add(panel1);
             Controls.Add(panel3);
@@ -466,7 +457,6 @@
             panel5.PerformLayout();
             rjDropdownMenu2.ResumeLayout(false);
             rjDropdownMenu3.ResumeLayout(false);
-            rjDropdownMenu4.ResumeLayout(false);
             rjDropdownMenu5.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -509,10 +499,9 @@
         private Helpers.RJDropdownMenu rjDropdownMenu3;
         private ToolStripMenuItem danhMụcToolStripMenuItem;
         private ToolStripMenuItem kiểuDanhMụcToolStripMenuItem;
-        private Helpers.RJDropdownMenu rjDropdownMenu4;
-        private ToolStripMenuItem kháchHàngToolStripMenuItem;
         private Helpers.RJDropdownMenu rjDropdownMenu5;
         private ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
+        private ToolStripMenuItem giaoCaToolStripMenuItem;
     }
 }

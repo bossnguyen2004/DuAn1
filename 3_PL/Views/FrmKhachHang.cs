@@ -131,9 +131,9 @@ namespace _3_PL.Views
 
         private void ckHD_CheckedChanged(object sender, EventArgs e)
         {
-            if (ckKHD.Checked)
+            if (ckHD.Checked)
             {
-                ckKHD.Checked = true;
+                ckHD.Checked = true;
                 ckKHD.Checked = false;
             }
         }
@@ -142,7 +142,7 @@ namespace _3_PL.Views
         {
             if (ckKHD.Checked)
             {
-                ckKHD.Checked = false;
+                ckHD.Checked = false;
                 ckKHD.Checked = true;
             }
         }

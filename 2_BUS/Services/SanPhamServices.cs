@@ -17,12 +17,22 @@ namespace _2_BUS.Services
         private INhaSanXuatRepositories _nhaSanXuatRepositories;
         private IChatLieuRepositories _chatLieuRepositories;
         private ISanPhamRepositories _sanPhamRepositories;
+        private ILoaiGiayRepositories _loaiGiayRepositories;
+        private IAnhRepositories _anhRepositories;
+        private ISizeGiayRepositories _sizeGiayRepositories;
+        private IMauSacRepositories _manauSacRepositories;
+        private ISanPhamCTRepositories _sanPhamCTRepositories;
 
         public SanPhamServices()
         {
             _nhaSanXuatRepositories = new NhaSanXuatRepository();
             _chatLieuRepositories = new ChatLieuRepository();
             _sanPhamRepositories = new SanPhamRepository();
+            _loaiGiayRepositories = new LoaiGiayRepositoy();
+            _anhRepositories = new AnhRepository();
+            _manauSacRepositories = new MauSacRepository();
+            _sizeGiayRepositories = new SizeGiayRepository();
+            _sanPhamCTRepositories = new SanPhamCTRepository();
         }
 
         public List<SanPhamViewModels> GetAll()
@@ -33,7 +43,7 @@ namespace _2_BUS.Services
                                                   select new SanPhamViewModels()
                                                   {
                                                       Id = a.Id.GetValueOrDefault(),
-                                                      Ma= a.Ma,
+                                                      Ma = a.Ma,
                                                       Ten = a.Ten,
                                                       TrangThai = a.TrangThai,
                                                       IdNhaSanXuat = b.Id,
@@ -45,6 +55,38 @@ namespace _2_BUS.Services
 
         }
 
+        public List<SanPham> GetAllSanPham()
+        {
+            return _sanPhamRepositories.GetAll().ToList();
+        }
+
+        public List<ProductsViewModel> GetProducts()
+        {
+            List<ProductsViewModel> lstSanPham = (from s in _sanPhamRepositories.GetAll().OrderBy(c => c.Id)
+                                                  join ct in _sanPhamCTRepositories.GetAll() on s.Id equals ct.IdSanPham
+                                                  join b in _nhaSanXuatRepositories.GetAll() on s.IdNhaSanXuat equals b.Id
+                                                  join c in _chatLieuRepositories.GetAll() on s.IdChatLieu equals c.Id
+                                                  join a in _anhRepositories.GetAll() on ct.IdAnh equals a.ID
+                                                  join l in _loaiGiayRepositories.GetAll() on ct.IdLoaiGiay equals l.Id
+                                                  join m in _manauSacRepositories.GetAll() on ct.IdMauSac equals m.Id
+                                                  join k in _sizeGiayRepositories.GetAll() on ct.IdSizeGiay equals k.Id
+                                                  select new ProductsViewModel()
+                                                  {
+                                                      Id = s.Id.GetValueOrDefault(),
+                                                      TenSanPham = s.Ten,
+                                                      MaSanPham = s.Ma,
+                                                      TrangThai = s.TrangThai,
+                                                      IdNSX = b.Id,
+                                                      TenNSX = b.Ten,
+                                                      IdChatLieu = c.Id,
+                                                      TenChatLieu = c.Ten,
+                                                      IdSize = k.Id,
+                                                      Size = k.SoSize,
+                                                      IdMauSac = m.Id
+
+                                                  }).ToList();
+            return lstSanPham;
+        }
 
         public bool Sua(Guid Id, string ma, string ten, int trangThai, string idNhaSanXuat, string idChatLieum)
         {
@@ -67,8 +109,6 @@ namespace _2_BUS.Services
             return _sanPhamRepositories.Sua(sanPham);
 
         }
-
-       
 
         public bool Them(string ma, string ten, int trangThai, string idNhaSanXuat, string idChatLieu)
         {
@@ -97,6 +137,33 @@ namespace _2_BUS.Services
             return _sanPhamRepositories.Them(sanPham);
         }
 
+        public bool ThemSP(string ma, string ten, int trangThai, string anh, Guid idChatLieu, Guid idNSX, Guid idLoai, Guid idSize, Guid idMauSac)
+        {
+            bool ketQua = false;
+            var sp = new SanPham()
+            {
+                Id = new Guid(),
+                Ten = ten,
+                Ma = ma,
+                TrangThai = trangThai,
+                IdChatLieu = idChatLieu,
+                IdNhaSanXuat = idNSX
+            };
+            ketQua = _sanPhamRepositories.Them(sp);
+
+            var anhSp = new Anh()
+            {
+                ID = new Guid(),
+                DuongDan = anh
+            };
+
+            ketQua = _anhRepositories.Them(anhSp);
+
+
+
+            return true;
+        }
+
         public List<SanPhamViewModels> TimKiem(string Ma)
         {
             throw new NotImplementedException();
@@ -111,5 +178,5 @@ namespace _2_BUS.Services
             return _sanPhamRepositories.Xoa(sanPham);
         }
     }
-    
+
 }
