@@ -22,6 +22,9 @@ namespace _2_BUS.Services
         private ISizeGiayRepositories _sizeGiayRepositories;
         private IMauSacRepositories _manauSacRepositories;
         private ISanPhamCTRepositories _sanPhamCTRepositories;
+        private IKieuDanhMucRepositories  _kieuDanhMucRepositories;
+        private IHoaDonRepositories _hoaDonRepositories;
+        private IHoaDonCTRepositories _hoaDonCTRepositories;
 
         public SanPhamServices()
         {
@@ -33,6 +36,9 @@ namespace _2_BUS.Services
             _manauSacRepositories = new MauSacRepository();
             _sizeGiayRepositories = new SizeGiayRepository();
             _sanPhamCTRepositories = new SanPhamCTRepository();
+            _kieuDanhMucRepositories = new KieuDanhMucRepository();
+            _hoaDonRepositories = new HoaDonRepository();
+            _hoaDonCTRepositories = new HoaDonCTRepository();
         }
 
         public List<SanPhamViewModels> GetAll()
@@ -137,12 +143,13 @@ namespace _2_BUS.Services
             return _sanPhamRepositories.Them(sanPham);
         }
 
-        public bool ThemSP(string ma, string ten, int trangThai, string anh, Guid idChatLieu, Guid idNSX, Guid idLoai, Guid idSize, Guid idMauSac)
+        public bool Add(string ma, string ten, int trangThai, string anh, decimal giaBan, Guid idChatLieu, Guid idNSX, Guid idLoai, Guid idSize, Guid idMauSac)
         {
             bool ketQua = false;
+            // luu san pham
             var sp = new SanPham()
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Ten = ten,
                 Ma = ma,
                 TrangThai = trangThai,
@@ -151,22 +158,90 @@ namespace _2_BUS.Services
             };
             ketQua = _sanPhamRepositories.Them(sp);
 
+            // luu anh
             var anhSp = new Anh()
             {
-                ID = new Guid(),
-                DuongDan = anh
+                ID = Guid.NewGuid(),
+                DuongDan = anh,
+                MaAnh = "IMG_" + ma,
             };
-
             ketQua = _anhRepositories.Them(anhSp);
 
+            // luu san pham chi tiet
+            var chiTiet = new SanPhamChiTiet()
+            {
+                Id = Guid.NewGuid(),
+                IdAnh = anhSp.ID,
+                IdLoaiGiay = idLoai,
+                IdMauSac = idMauSac,
+                IdSanPham = sp.Id,
+                IdSizeGiay = idSize,
+                GiaBan = giaBan,
+                TrangThai = trangThai
+            };
+            ketQua = _sanPhamCTRepositories.Them(chiTiet);
+            return ketQua;
+        }
 
+        public bool Update(Guid id, string ma, string ten, int trangThai, string anh, decimal giaBan, Guid idChatLieu, Guid idNSX, Guid idLoai, Guid idSize, Guid idMauSac)
+        {
+            bool ketQua = false;
+            var sp = _sanPhamRepositories.GetAll().Where(x => x.Id == id).FirstOrDefault();
+            sp.Ten = ten;
+            sp.Ma = ma;
+            sp.TrangThai = trangThai;
+            sp.IdChatLieu = idChatLieu;
+            sp.IdNhaSanXuat = idNSX;
+            ketQua = _sanPhamRepositories.Sua(sp);
 
-            return true;
+            var lstChiTiet = _sanPhamCTRepositories.GetAll().Where(x => x.IdSanPham == id).ToList();
+            foreach (var item in lstChiTiet)
+            {
+                var lstAnh = _anhRepositories.GetAll().Where(x => x.ID == item.IdAnh).ToList();
+                foreach (var itemAnh in lstAnh)
+                {
+                    itemAnh.DuongDan = anh;
+                    itemAnh.MaAnh = "IMG_" + ma;
+                    ketQua = _anhRepositories.Sua(itemAnh);
+                }
+                item.IdSizeGiay = idSize;
+                item.IdMauSac = idMauSac;
+                item.GiaBan = giaBan;
+                item.TrangThai = trangThai;
+                item.IdLoaiGiay = idLoai;
+                ketQua = _sanPhamCTRepositories.Sua(item);
+            }
+            return ketQua;
         }
 
         public List<SanPhamViewModels> TimKiem(string Ma)
         {
             throw new NotImplementedException();
+        }
+
+        public bool Delete(Guid id)
+        {
+            bool ketQua = false;
+            var lstChiTiet = _sanPhamCTRepositories.GetAll();
+            var lstDelete = lstChiTiet.Where(x => x.IdSanPham == id);
+            foreach ( var x in lstChiTiet)
+            {
+                ketQua = _sanPhamCTRepositories.Xoa(x);
+            }
+            // xoa kieu danh muc
+            var kieuDanhMuc = _kieuDanhMucRepositories.GetAll();
+            var lstDanhMucDelete = kieuDanhMuc.Where(x => x.IdSanPham == id);
+            foreach(var danhMuc in lstDanhMucDelete)
+            {
+                ketQua = _kieuDanhMucRepositories.Xoa(danhMuc);
+            }
+            // xoa san pham
+            var sanPham = new SanPham()
+            {
+                Id = id
+            };
+            ketQua = _sanPhamRepositories.Xoa(sanPham);
+            return ketQua;
         }
 
         public bool Xoa(Guid Id)
@@ -176,6 +251,46 @@ namespace _2_BUS.Services
                 Id = Id,
             };
             return _sanPhamRepositories.Xoa(sanPham);
+        }
+
+        public bool AddCart(UserViewModel user, Guid? idNv, Guid idSp)
+        {
+            var hoaDon = new HoaDon()
+            {
+                Id = Guid.NewGuid()
+            };
+            if(idNv != null)
+            {
+                hoaDon.IdNv = idNv;
+            }
+            else
+            {
+                hoaDon.IdNv = Guid.Parse("2547B172-DB0E-423F-9BF9-5304547410B5") ;
+            }
+            hoaDon.IdThanhToan = Guid.Parse("58e29ffc-7e68-44c2-8e9e-947ae81c74c0");
+            hoaDon.IdVouCher = Guid.Parse("c62f84bd-e1a4-4a75-afd9-e67f53c3260f");
+            hoaDon.IdKh = user.Id;
+            hoaDon.DiaChi = user.QueQuan;
+            hoaDon.SDT = user.Sdt;
+            hoaDon.TinhTrang = 0;
+            var ranDom = new Random();
+            hoaDon.Ma = "GH_" + ranDom.Next(0, 9999);
+            var ketQua = _hoaDonRepositories.Them(hoaDon);
+
+            var hoaDonChiTiet = new HoaDonChiTiet()
+            {
+                Id = Guid.NewGuid(),
+                IdHoaDon = hoaDon.Id,
+                SoLuong = 1
+            };
+            var chiTietSp = _sanPhamCTRepositories.GetAll().Where(s => s.IdSanPham == idSp).FirstOrDefault();
+            if (chiTietSp != null)
+            {
+                hoaDonChiTiet.IdChiTietSanPham = chiTietSp.Id;
+                hoaDonChiTiet.ThanhTien = chiTietSp.GiaBan * 1;
+            }
+            ketQua = _hoaDonCTRepositories.Them(hoaDonChiTiet);
+            return ketQua;
         }
     }
 

@@ -30,12 +30,12 @@
         {
             label3 = new Label();
             txtTimKiem = new TextBox();
-            groupBox2 = new GroupBox();
             btnThem = new Button();
             btnSua = new Button();
             btnXoa = new Button();
             btnClear = new Button();
             groupBox1 = new GroupBox();
+            label4 = new Label();
             ckKHD = new CheckBox();
             ckHoatdong = new CheckBox();
             txtMa = new TextBox();
@@ -43,8 +43,6 @@
             label2 = new Label();
             txtTen = new TextBox();
             dgvChatLieu = new DataGridView();
-            label4 = new Label();
-            groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvChatLieu).BeginInit();
             SuspendLayout();
@@ -52,7 +50,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(21, 193);
+            label3.Location = new Point(360, 50);
             label3.Name = "label3";
             label3.Size = new Size(60, 15);
             label3.TabIndex = 15;
@@ -60,28 +58,14 @@
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(81, 185);
+            txtTimKiem.Location = new Point(420, 42);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(173, 23);
             txtTimKiem.TabIndex = 16;
             // 
-            // groupBox2
-            // 
-            groupBox2.BackColor = Color.White;
-            groupBox2.Controls.Add(btnThem);
-            groupBox2.Controls.Add(btnSua);
-            groupBox2.Controls.Add(btnXoa);
-            groupBox2.Controls.Add(btnClear);
-            groupBox2.Location = new Point(654, 22);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(165, 204);
-            groupBox2.TabIndex = 14;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Chức Năng";
-            // 
             // btnThem
             // 
-            btnThem.Location = new Point(6, 28);
+            btnThem.Location = new Point(220, 190);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(105, 26);
             btnThem.TabIndex = 2;
@@ -91,7 +75,7 @@
             // 
             // btnSua
             // 
-            btnSua.Location = new Point(6, 69);
+            btnSua.Location = new Point(371, 187);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(105, 29);
             btnSua.TabIndex = 5;
@@ -101,7 +85,7 @@
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(6, 111);
+            btnXoa.Location = new Point(505, 187);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(105, 28);
             btnXoa.TabIndex = 6;
@@ -111,7 +95,7 @@
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(6, 158);
+            btnClear.Location = new Point(643, 186);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(105, 29);
             btnClear.TabIndex = 7;
@@ -131,12 +115,21 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(txtTen);
-            groupBox1.Location = new Point(21, 12);
+            groupBox1.Location = new Point(165, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(627, 214);
+            groupBox1.Size = new Size(627, 174);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông Tin";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(19, 134);
+            label4.Name = "label4";
+            label4.Size = new Size(64, 15);
+            label4.TabIndex = 17;
+            label4.Text = "Trạng Thái:";
             // 
             // ckKHD
             // 
@@ -196,33 +189,27 @@
             // 
             dgvChatLieu.BackgroundColor = Color.White;
             dgvChatLieu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvChatLieu.Location = new Point(21, 232);
+            dgvChatLieu.Location = new Point(165, 232);
             dgvChatLieu.Name = "dgvChatLieu";
-            dgvChatLieu.Size = new Size(798, 162);
+            dgvChatLieu.Size = new Size(627, 207);
             dgvChatLieu.TabIndex = 17;
             dgvChatLieu.CellClick += dgvChatLieu_CellClick;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(19, 134);
-            label4.Name = "label4";
-            label4.Size = new Size(64, 15);
-            label4.TabIndex = 17;
-            label4.Text = "Trạng Thái:";
             // 
             // FrmChatLieu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(831, 400);
+            BackColor = Color.White;
+            ClientSize = new Size(1019, 451);
+            Controls.Add(btnClear);
+            Controls.Add(btnXoa);
+            Controls.Add(btnSua);
+            Controls.Add(btnThem);
             Controls.Add(dgvChatLieu);
-            Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "FrmChatLieu";
             Text = "FrmChatLieu";
             Load += FrmChatLieu_Load;
-            groupBox2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvChatLieu).EndInit();
@@ -233,7 +220,6 @@
 
         private Label label3;
         private TextBox txtTimKiem;
-        private GroupBox groupBox2;
         private Button btnThem;
         private Button btnSua;
         private Button btnXoa;

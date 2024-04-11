@@ -63,6 +63,16 @@ namespace _3_PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _default {
+            get {
+                object obj = ResourceManager.GetObject("default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap h_n2 {
             get {
                 object obj = ResourceManager.GetObject("h.n2", resourceCulture);
@@ -136,6 +146,26 @@ namespace _3_PL.Properties {
         internal static System.Drawing.Bitmap nv {
             get {
                 object obj = ResourceManager.GetObject("nv", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap running_shoe {
+            get {
+                object obj = ResourceManager.GetObject("running-shoe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap running_shoe1 {
+            get {
+                object obj = ResourceManager.GetObject("running-shoe1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

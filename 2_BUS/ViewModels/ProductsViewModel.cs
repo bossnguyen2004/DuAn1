@@ -25,6 +25,8 @@ namespace _2_BUS.ViewModels
         public Guid? IdLoaiSanPham { get; set; }
         public string LoaiSanPham { get; set; }
         public Guid? IdAnh { get; set; }
+        public Guid? IdChiTiet { get; set; }
         public string Anh { get; set; }
+        public string GiaBan { get; set; }
     }
 }

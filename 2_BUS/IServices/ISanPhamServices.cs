@@ -17,6 +17,9 @@ namespace _2_BUS.IServices
         bool Sua(Guid Id, string ma, string ten, int trangThai, string idNhaSanXuat, string idChatLieum);
         bool Xoa(Guid Id);
         List<SanPhamViewModels> TimKiem(string Ma);
-        bool ThemSP(string ma, string ten, int trangThai, string anh, Guid idChatLieu, Guid idNSX, Guid idLoai, Guid idSize, Guid idMauSac);
+        bool Add(string ma, string ten, int trangThai, string anh, decimal giaBan, Guid idChatLieu, Guid idNSX, Guid idLoai, Guid idSize, Guid idMauSac);
+        bool AddCart(UserViewModel user, Guid? idNv, Guid idSp);
+        bool Update(Guid id, string ma, string ten, int trangThai, string anh, decimal giaBan, Guid idChatLieu, Guid idNSX, Guid idLoai, Guid idSize, Guid idMauSac);
+        bool Delete(Guid id);
     }
 }

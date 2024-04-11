@@ -10,5 +10,8 @@ namespace _2_BUS.IServices
     public interface IHoaDonCTServices
     {
         List<HoaDonChiTiet> GetAll();
+        bool Add(HoaDon hoaDon);
+        bool Update(HoaDon hoaDon);
+        bool Delete(HoaDon hoaDon);
     }
 }

@@ -40,7 +40,7 @@ namespace _2_BUS.Services
             // gán giá trị
             foreach (var x in listcommit)
             {
-                tong = Convert.ToDouble(_ihdser.GetAll().Where(c => c.IdNv == _nv.Id).Select(c => c.TongTienTrongCa).Sum());
+                tong = Convert.ToDouble(_ihdser.GetAll().Where(c => c.IdNv == _nv.Id).Select(c => c.TongTienNvTrongCa).Sum());
                 day = x.NgayThanhToan;
                 nam = x.NgayThanhToan;
                 if (day != null)

@@ -45,22 +45,22 @@ namespace _3_PL.Views
                     try
                     {
                         var nv = (NhanVien)user;
-
+                        userViewModel.Id = nv.Id;
                         userViewModel.IsCutomer = false;
                         userViewModel.Ho = nv.Ho;
                         userViewModel.Ten = nv.Ten;
                     }
                     catch (Exception)
                     {
-                     
                         var kh = (KhachHang)user;
+                        userViewModel.Id = kh.Id.Value;
                         userViewModel.IsCutomer = true;
                         userViewModel.Ten = kh.Ten;
                     }
                     Helpers.AccountHelper.Instance.SetUserLogin(userViewModel);
                     this.Hide();
-                    var formNhanVien = new FrmHome();
-                    formNhanVien.Show();
+                    var formMain = new frmMain();
+                    formMain.Show();
                 }
                 else
                 {

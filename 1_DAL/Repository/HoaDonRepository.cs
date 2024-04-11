@@ -1,8 +1,10 @@
-﻿using _1_DAL.IRepositories;
+﻿using _1_DAL.DBContext;
+using _1_DAL.IRepositories;
 using _1_DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,19 +12,29 @@ namespace _1_DAL.Repository
 {
     public class HoaDonRepository : IHoaDonRepositories
     {
+        private ApplicationDBContext context;
+        public HoaDonRepository()
+        {
+            context = new ApplicationDBContext();
+        }
+
         public List<HoaDon> GetAll()
         {
-            throw new NotImplementedException();
+            return context.HoaDons.ToList();
         }
 
         public bool Sua(HoaDon hoaDon)
         {
-            throw new NotImplementedException();
+            context.HoaDons.Update(hoaDon);
+            context.SaveChanges();
+            return true;
         }
 
         public bool Them(HoaDon hoaDon)
         {
-            throw new NotImplementedException();
+            context.HoaDons.Add(hoaDon);
+            context.SaveChanges();
+            return true;
         }
 
         public List<HoaDon> TimKiem(string Ma)
@@ -30,9 +42,11 @@ namespace _1_DAL.Repository
             throw new NotImplementedException();
         }
 
-        public bool Xoa(Guid Id)
+        public bool Xoa(HoaDon hoaDon)
         {
-            throw new NotImplementedException();
+            context.HoaDons.Remove(hoaDon);
+            context.SaveChanges();
+            return true;
         }
     }
 }

@@ -78,9 +78,11 @@
             dgvDanhSach.Size = new Size(789, 241);
             dgvDanhSach.TabIndex = 0;
             dgvDanhSach.CellClick += dgvDanhSach_CellClick;
+            dgvDanhSach.CellContentClick += dgvDanhSach_CellContentClick;
             // 
             // groupBox2
             // 
+            groupBox2.BackColor = Color.White;
             groupBox2.Controls.Add(txtTen);
             groupBox2.Controls.Add(cbTrangThai);
             groupBox2.Controls.Add(cbMauSac);
@@ -282,6 +284,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(800, 495);
             Controls.Add(btnAnh);
             Controls.Add(btnXoa);

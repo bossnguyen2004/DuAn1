@@ -234,5 +234,10 @@ namespace _3_PL.Views
                 MessageBox.Show(Convert.ToString(ex.Message), "Liên hệ khắc phục");
             }
         }
+
+        private void dgvDanhSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -64,6 +64,7 @@
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(219, 23);
             txtMail.TabIndex = 1;
+            txtMail.Text = "tranvannguyen12@gmail.com";
             // 
             // txtmatKhau
             // 
@@ -71,6 +72,7 @@
             txtmatKhau.Name = "txtmatKhau";
             txtmatKhau.Size = new Size(219, 23);
             txtmatKhau.TabIndex = 3;
+            txtmatKhau.Text = "1111";
             txtmatKhau.TextChanged += txtmatKhau_TextChanged;
             // 
             // label2

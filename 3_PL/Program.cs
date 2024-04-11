@@ -10,7 +10,7 @@ namespace _3_PL
             
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmSanPham2());
+            Application.Run(new FrmLogin());
         }
     }
 }

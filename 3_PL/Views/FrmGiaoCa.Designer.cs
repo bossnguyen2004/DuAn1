@@ -52,14 +52,12 @@
             label6 = new Label();
             label5 = new Label();
             dgvGiaoCa = new DataGridView();
-            groupBox3 = new GroupBox();
             btnClear = new Button();
             btnLuu = new Button();
             btnGiaoCa = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGiaoCa).BeginInit();
-            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -74,9 +72,9 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(txtNhanVienCa);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(8, 12);
+            groupBox1.Location = new Point(253, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(527, 135);
+            groupBox1.Size = new Size(527, 117);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin Nhân Viên";
@@ -92,7 +90,7 @@
             // 
             // txtTienBanDau
             // 
-            txtTienBanDau.Location = new Point(370, 102);
+            txtTienBanDau.Location = new Point(376, 78);
             txtTienBanDau.Name = "txtTienBanDau";
             txtTienBanDau.Size = new Size(145, 23);
             txtTienBanDau.TabIndex = 7;
@@ -100,7 +98,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(288, 105);
+            label4.Location = new Point(294, 81);
             label4.Name = "label4";
             label4.Size = new Size(79, 15);
             label4.TabIndex = 6;
@@ -110,7 +108,7 @@
             // 
             dtNhanCa.CustomFormat = "dd/MM/yyyy";
             dtNhanCa.Format = DateTimePickerFormat.Custom;
-            dtNhanCa.Location = new Point(370, 63);
+            dtNhanCa.Location = new Point(376, 39);
             dtNhanCa.Name = "dtNhanCa";
             dtNhanCa.Size = new Size(145, 23);
             dtNhanCa.TabIndex = 5;
@@ -127,7 +125,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(277, 66);
+            label3.Location = new Point(283, 42);
             label3.Name = "label3";
             label3.Size = new Size(92, 15);
             label3.TabIndex = 3;
@@ -173,7 +171,7 @@
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(label5);
-            groupBox2.Location = new Point(12, 164);
+            groupBox2.Location = new Point(253, 135);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(529, 169);
             groupBox2.TabIndex = 1;
@@ -282,39 +280,26 @@
             // 
             dgvGiaoCa.BackgroundColor = Color.White;
             dgvGiaoCa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvGiaoCa.Location = new Point(18, 371);
+            dgvGiaoCa.Location = new Point(253, 312);
             dgvGiaoCa.Name = "dgvGiaoCa";
-            dgvGiaoCa.Size = new Size(779, 174);
+            dgvGiaoCa.Size = new Size(529, 136);
             dgvGiaoCa.TabIndex = 2;
             dgvGiaoCa.CellClick += dgvGiaoCa_CellClick;
             // 
-            // groupBox3
-            // 
-            groupBox3.BackColor = Color.White;
-            groupBox3.Controls.Add(btnClear);
-            groupBox3.Controls.Add(btnLuu);
-            groupBox3.Controls.Add(btnGiaoCa);
-            groupBox3.Location = new Point(561, 12);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(222, 321);
-            groupBox3.TabIndex = 3;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Chức Năng";
-            // 
             // btnClear
             // 
-            btnClear.Location = new Point(31, 198);
+            btnClear.Location = new Point(822, 169);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(120, 46);
+            btnClear.Size = new Size(120, 33);
             btnClear.TabIndex = 2;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(30, 127);
+            btnLuu.Location = new Point(822, 117);
             btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(120, 46);
+            btnLuu.Size = new Size(120, 34);
             btnLuu.TabIndex = 1;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
@@ -322,9 +307,9 @@
             // 
             // btnGiaoCa
             // 
-            btnGiaoCa.Location = new Point(31, 54);
+            btnGiaoCa.Location = new Point(822, 73);
             btnGiaoCa.Name = "btnGiaoCa";
-            btnGiaoCa.Size = new Size(119, 45);
+            btnGiaoCa.Size = new Size(119, 30);
             btnGiaoCa.TabIndex = 0;
             btnGiaoCa.Text = "Giao Ca";
             btnGiaoCa.UseVisualStyleBackColor = true;
@@ -335,9 +320,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1022, 557);
-            Controls.Add(groupBox3);
+            ClientSize = new Size(1019, 451);
+            Controls.Add(btnClear);
+            Controls.Add(btnLuu);
             Controls.Add(dgvGiaoCa);
+            Controls.Add(btnGiaoCa);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "FrmGiaoCa";
@@ -348,7 +335,6 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvGiaoCa).EndInit();
-            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -376,7 +362,6 @@
         private TextBox txtTiencatruoc;
         private TextBox txtghichu;
         private DataGridView dgvGiaoCa;
-        private GroupBox groupBox3;
         private Button btnGiaoCa;
         private Label label11;
         private Button btnClear;
